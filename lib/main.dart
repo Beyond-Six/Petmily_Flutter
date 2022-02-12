@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'LondrinaSolid'),
+      theme: ThemeData(fontFamily: 'BalooBhaijaan'),
       home: LandingPage(),
     );
   }

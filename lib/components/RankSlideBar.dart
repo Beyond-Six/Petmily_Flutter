@@ -51,7 +51,7 @@ class _RankSlideBarState extends State<RankSlideBar> {
           body: Column(
             children: <Widget>[
               SizedBox(
-                height: 240,
+                height: 230,
                 child: PageView.builder(
                   controller: ctrl,
                   itemCount : 5,
@@ -69,7 +69,7 @@ class _RankSlideBarState extends State<RankSlideBar> {
                   dotHeight: 8,
                   dotWidth: 8,
                   type: WormType.thin,
-                  activeDotColor: Colors.brown,
+                  activeDotColor: Colors.blueGrey.shade600,
                   dotColor: Colors.black12
                   // strokeWidth: 5,
                 ),
@@ -109,7 +109,7 @@ class _RankSlideBarState extends State<RankSlideBar> {
           fit: BoxFit.cover,
           image: new AssetImage('assets/dogPicture2.jpg'),
         ),
-        boxShadow:  [BoxShadow(color: Colors.black87, blurRadius: blur, offset: Offset(offset, offset))],
+        boxShadow:  [BoxShadow(color: Colors.black54, blurRadius: blur, offset: Offset(offset, offset))],
 
       ),
       child: Container(

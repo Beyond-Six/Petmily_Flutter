@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:new_project/screens/DbTestScreen.dart';
 
 import 'package:new_project/screens/HomeScreen.dart';
 import 'package:new_project/screens/RankListScreen.dart';
@@ -25,19 +24,15 @@ class MainPageState extends State<MainPage>{
   int _selectedIndex = 0;
   List<BottomNavigationBarItem> bottomItems = [
     BottomNavigationBarItem(
-        label: 'num1',
+        label: 'home',
         icon: Icon(Icons.home)
     ),
     BottomNavigationBarItem(
-        label: 'num2',
+        label: 'recommend',
         icon: Icon(Icons.pets)
     ),
     BottomNavigationBarItem(
-        label: 'num3',
-        icon: Icon(Icons.assistant_photo)
-    ),
-    BottomNavigationBarItem(
-        label: 'num4',
+        label: 'community',
         icon: Icon(Icons.article)
     ),
   ];
@@ -45,9 +40,8 @@ class MainPageState extends State<MainPage>{
   List<Widget> _buildScreens() {
     return [
       HomeScreen(),
-      Text('my page'),
-      Text('challenge page'),
-      DbTestScreen(),
+      Text('recommendation page'),
+      Text('community page'),
     ];
   }
 
@@ -61,13 +55,7 @@ class MainPageState extends State<MainPage>{
       ),
       PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.paw),
-        title: ("MyPage"),
-        activeColorPrimary: CupertinoColors.destructiveRed,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
-      ),
-      PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.checkmark_seal_fill),
-        title: ("Challenge"),
+        title: ("Recommend"),
         activeColorPrimary: CupertinoColors.destructiveRed,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
@@ -86,7 +74,12 @@ class MainPageState extends State<MainPage>{
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(40.0),
         child: AppBar(
-          title: Text('PETMILY', style: TextStyle(fontSize: 25, color: Colors.brown),),
+          title: Row(
+            children: [
+              Icon(Icons.home_rounded, color: Colors.redAccent),
+              Text('PETMILY', style: TextStyle(fontSize: 25,  color: Colors.redAccent),)
+            ],
+          ),
           actions: <Widget> [
             IconButton(
               icon: Icon(Icons.search),

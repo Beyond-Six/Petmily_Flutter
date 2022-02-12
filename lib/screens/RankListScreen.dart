@@ -65,7 +65,7 @@ class _RankListComponentState extends State<RankListComponent> {
         height: 90,
         child: Row(
           children: [
-            Text('${widget.index}', style: TextStyle(fontSize: 30),),
+            Text('${widget.index}', style: TextStyle(fontSize: 20),),
             Image.asset('assets/product.png'),
             Align(
               alignment: Alignment.bottomCenter,
