@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:new_project/screens/ShortsScreen.dart';
 import 'package:video_player/video_player.dart';
-import 'package:video_thumbnail/video_thumbnail.dart';
 
 class ShortsBar extends StatefulWidget {
   const ShortsBar({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _ShortsBarState extends State<ShortsBar> {
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
                 itemBuilder: (BuildContext context, int index){
-                  return ShortsBox();
+                  return ShortsBox(path: 'assets/video/test_video1.',);
                 }
             )
           )
@@ -36,55 +37,32 @@ class _ShortsBarState extends State<ShortsBar> {
 }
 
 class ShortsBox extends StatefulWidget {
-  const ShortsBox({Key? key}) : super(key: key);
+  final String path;
+  const ShortsBox({Key? key, required this.path}) : super(key: key);
 
   @override
   _ShortsBoxState createState() => _ShortsBoxState();
 }
 
 class _ShortsBoxState extends State<ShortsBox> {
-  late VideoPlayerController controller;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    controller = VideoPlayerController.asset('assets/video/test_video1.mp4');
-    controller.addListener(() {
-      setState(() {});
-    });
-    controller.initialize().then((_) => setState((){}));
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    controller.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: 
+      onTap: () {
+        Get.to(() => ShortsScreen(path: widget.path));
+      },
       child: Container(
-          width: 120,
+          width: 100,
           margin: EdgeInsets.all(5),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-          ),
-          child: buildVideo()
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: new AssetImage(widget.path + 'png')
+            )
+          )
       )
     );
   }
-
-  Widget buildVideo() => buildVideoPlayer();
-  Widget buildVideoPlayer() => AspectRatio(
-    aspectRatio: controller.value.aspectRatio,
-    child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: VideoPlayer(controller)
-    )
-  );
 }
-
