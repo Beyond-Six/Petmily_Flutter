@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:new_project/drawer/MyInfoDrawer.dart';
 
 import 'package:new_project/screens/HomeScreen.dart';
 import 'package:new_project/screens/RankListScreen.dart';
@@ -20,6 +21,7 @@ class MainPage extends StatefulWidget{
 
 class MainPageState extends State<MainPage>{
   PersistentTabController _controller = PersistentTabController(initialIndex: 0);
+  final GlobalKey<ScaffoldState> _key = GlobalKey();
 
   int _selectedIndex = 0;
   List<BottomNavigationBarItem> bottomItems = [
@@ -71,27 +73,37 @@ class MainPageState extends State<MainPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _key,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(40.0),
         child: AppBar(
-          title: Row(
-            children: [
-              Icon(Icons.home_rounded, color: Colors.redAccent),
-              Text('PETMILY', style: TextStyle(fontSize: 25,  color: Colors.redAccent),)
-            ],
+          title: Container(
+            padding: EdgeInsets.all(5),
+            child: Image.asset('assets/title.png')
           ),
           actions: <Widget> [
             IconButton(
+              iconSize: 30,
               icon: Icon(Icons.search),
-                color: Colors.brown,
+                color: Color(0xff2c3440),
                 onPressed: () {},
-            )
+            ),
+            IconButton(
+              iconSize: 30,
+              icon: Icon(Icons.account_balance_wallet),
+              color: Color(0xff2c3440),
+              onPressed: () {
+                _key.currentState!.openEndDrawer();
+              },
+            ),
           ],
           backgroundColor: Colors.white,
           automaticallyImplyLeading: false,
           elevation: 0.0,
         ),
       ),
+      endDrawer: MyInfoDrawer(),
+
       body: Container(
         child: PersistentTabView(
         context,

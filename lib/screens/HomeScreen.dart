@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 50,
                   child: Text.rich(
                       TextSpan(text: "My PETMILY is ",
-                          style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.w500),
+                          style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.w500, color: Color(0xff2c3440)),
                           children: const <TextSpan>[
                             TextSpan(text: 'Joe', style: TextStyle(color: Colors.redAccent, decoration: TextDecoration.underline))
                           ]

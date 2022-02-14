@@ -59,7 +59,7 @@ class CategoryItem extends StatelessWidget {
             Container(
               width: 50.0,
               height: 50.0,
-              child: Image.asset('assets/dog.png', fit: BoxFit.fill),
+              child: Image.asset('http://182.217.140.11:3000/api/file/imgDownload?dir=af2d6306f6762f6aecfd5a29b386df02', fit: BoxFit.fill),
             ),
             const Text('Category', style: TextStyle(),)
           ],

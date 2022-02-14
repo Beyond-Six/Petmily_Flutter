@@ -40,6 +40,7 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   persistent_bottom_nav_bar: 4.0.2
   http: 0.13.4
+  clay_containers: ^0.3.2
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,7 @@ flutter:
   assets:
     - assets/
     - assets/video/
+    - assets/image/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

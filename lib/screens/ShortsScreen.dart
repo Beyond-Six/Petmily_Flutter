@@ -53,7 +53,7 @@ class _ShortsScreenState extends State<ShortsScreen> {
                   Material(
                     type: MaterialType.transparency,
                     child: Container(
-                      margin: EdgeInsets.all(10),
+                      margin: EdgeInsets.all(20),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,15 +68,25 @@ class _ShortsScreenState extends State<ShortsScreen> {
                   Material(
                     type: MaterialType.transparency,
                     child: Container(
-                      margin: EdgeInsets.all(10),
                       alignment: Alignment.bottomRight,
-                      child: IconButton(
-                        icon: Icon(isLike ? Icons.favorite : Icons.favorite_border, color: Colors.redAccent, size: 30,),
-                        onPressed: () {
-                          setState(() {
-                            isLike ? isLike = false : isLike = true;
-                          });
-                        },
+                      margin: EdgeInsets.all(10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          IconButton(
+                            icon: Icon(Icons.chat_bubble_outline, color: Colors.white, size: 30),
+                            onPressed: () {
+                            },
+                          ),
+                          IconButton(
+                            icon: Icon(isLike ? Icons.favorite : Icons.favorite_border, color: Colors.redAccent, size: 30),
+                            onPressed: () {
+                              setState(() {
+                                isLike ? isLike = false : isLike = true;
+                              });
+                            },
+                          )
+                        ] ,
                       ),
                     ),
                   ),
