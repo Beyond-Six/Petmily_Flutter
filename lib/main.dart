@@ -12,7 +12,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'LondrinaSolid'),
+      theme: ThemeData(
+          primaryColor: Color(0xff2c3440),
+          secondaryHeaderColor: Color(0xffff5c5c),
+          fontFamily: 'BalooBhaijaan',
+          textTheme: const TextTheme()),
       home: LandingPage(),
     );
   }

@@ -24,7 +24,7 @@ class _RankTabState extends State<RankTab> with TickerProviderStateMixin {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
-          width: 280,
+          width: 300,
           child: TabBar(
             tabs: [
               Container(

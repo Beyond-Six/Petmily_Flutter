@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:new_project/screens/DbTestScreen.dart';
+import 'package:new_project/drawer/MyInfoDrawer.dart';
 
 import 'package:new_project/screens/HomeScreen.dart';
 import 'package:new_project/screens/RankListScreen.dart';
@@ -21,23 +21,20 @@ class MainPage extends StatefulWidget{
 
 class MainPageState extends State<MainPage>{
   PersistentTabController _controller = PersistentTabController(initialIndex: 0);
+  final GlobalKey<ScaffoldState> _key = GlobalKey();
 
   int _selectedIndex = 0;
   List<BottomNavigationBarItem> bottomItems = [
     BottomNavigationBarItem(
-        label: 'num1',
+        label: 'home',
         icon: Icon(Icons.home)
     ),
     BottomNavigationBarItem(
-        label: 'num2',
+        label: 'recommend',
         icon: Icon(Icons.pets)
     ),
     BottomNavigationBarItem(
-        label: 'num3',
-        icon: Icon(Icons.assistant_photo)
-    ),
-    BottomNavigationBarItem(
-        label: 'num4',
+        label: 'community',
         icon: Icon(Icons.article)
     ),
   ];
@@ -45,9 +42,8 @@ class MainPageState extends State<MainPage>{
   List<Widget> _buildScreens() {
     return [
       HomeScreen(),
-      Text('my page'),
-      Text('challenge page'),
-      DbTestScreen(),
+      Text('recommendation page'),
+      Text('community page'),
     ];
   }
 
@@ -61,13 +57,7 @@ class MainPageState extends State<MainPage>{
       ),
       PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.paw),
-        title: ("MyPage"),
-        activeColorPrimary: CupertinoColors.destructiveRed,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
-      ),
-      PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.checkmark_seal_fill),
-        title: ("Challenge"),
+        title: ("Recommend"),
         activeColorPrimary: CupertinoColors.destructiveRed,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
@@ -83,22 +73,37 @@ class MainPageState extends State<MainPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _key,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(40.0),
         child: AppBar(
-          title: Text('PETMILY', style: TextStyle(fontSize: 25, color: Colors.brown),),
+          title: Container(
+            padding: EdgeInsets.all(5),
+            child: Image.asset('assets/title.png')
+          ),
           actions: <Widget> [
             IconButton(
+              iconSize: 30,
               icon: Icon(Icons.search),
-                color: Colors.brown,
+                color: Color(0xff2c3440),
                 onPressed: () {},
-            )
+            ),
+            IconButton(
+              iconSize: 30,
+              icon: Icon(Icons.account_balance_wallet),
+              color: Color(0xff2c3440),
+              onPressed: () {
+                _key.currentState!.openEndDrawer();
+              },
+            ),
           ],
           backgroundColor: Colors.white,
           automaticallyImplyLeading: false,
           elevation: 0.0,
         ),
       ),
+      endDrawer: MyInfoDrawer(),
+
       body: Container(
         child: PersistentTabView(
         context,

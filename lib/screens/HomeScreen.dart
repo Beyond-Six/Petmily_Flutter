@@ -4,6 +4,7 @@ import 'package:new_project/components/CategoryBar.dart';
 import 'package:new_project/components/RankBox.dart';
 import 'package:new_project/components/RankSlideBar.dart';
 import 'package:new_project/components/RankTab.dart';
+import 'package:new_project/components/ShortsBar.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 // ignore_for_file: prefer_const_constructors
 
@@ -24,11 +25,12 @@ class _HomeScreenState extends State<HomeScreen> {
           Column(
             children: <Widget>[
               Container(
+                height: 50,
                   child: Text.rich(
                       TextSpan(text: "My PETMILY is ",
-                          style: TextStyle(fontSize: 40.0),
+                          style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.w500, color: Color(0xff2c3440)),
                           children: const <TextSpan>[
-                            TextSpan(text: 'Joe', style: TextStyle(color: Colors.brown, decoration: TextDecoration.underline))
+                            TextSpan(text: 'Joe', style: TextStyle(color: Colors.redAccent, decoration: TextDecoration.underline))
                           ]
                       )
                   )
@@ -54,15 +56,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Container(
                   width: 350,
-                  child: Divider(color: Colors.grey, thickness: 0.2)
-              ),
-              Container(
-                height: 90,
-                padding: EdgeInsets.fromLTRB(5.0, 0, 5.0, 0),
-                child: CategoryBar()
-              ),
-              Container(
-                  width: 350,
                   child: Divider(color: Colors.grey, thickness: 0.2)),
               Padding(
                 padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
@@ -73,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Container(
                         child: Column(
                           children: <Widget> [
-                            Text("RANK TOP5", style: TextStyle(fontSize: 20.0,)),
+                            Text("Joe Will Love It", style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w500)),
 
                           ],
                         )
@@ -83,9 +76,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Container(
-                height: 185,
+                height: 210,
                 padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
                 child: RankTab()
+              ),
+              Container(
+                padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
+                child: ShortsBar()
               ),
               SizedBox(
                 height: 20,

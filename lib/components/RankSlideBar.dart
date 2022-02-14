@@ -19,11 +19,12 @@ class _RankSlideBarState extends State<RankSlideBar> {
   // Stream slides;
 
   int currentPage = 0;
+  late Timer _timer;
 
   @override
   void initState() {
     // _queryDb();
-
+    super.initState();
     ctrl.addListener(() {
       int next = ctrl.page!.round();
 
@@ -33,6 +34,25 @@ class _RankSlideBarState extends State<RankSlideBar> {
         });
       }
     });
+
+    _timer = Timer.periodic(Duration(seconds: 10), (Timer timer) {
+      if (currentPage < 4) {
+        currentPage++;
+      } else {
+        currentPage = 0;
+      }
+      ctrl.animateToPage(
+        currentPage,
+        duration: Duration(milliseconds: 1000),
+        curve: Curves.easeIn,
+      );
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _timer.cancel();
   }
 
   @override
@@ -51,7 +71,7 @@ class _RankSlideBarState extends State<RankSlideBar> {
           body: Column(
             children: <Widget>[
               SizedBox(
-                height: 240,
+                height: 230,
                 child: PageView.builder(
                   controller: ctrl,
                   itemCount : 5,
@@ -69,7 +89,7 @@ class _RankSlideBarState extends State<RankSlideBar> {
                   dotHeight: 8,
                   dotWidth: 8,
                   type: WormType.thin,
-                  activeDotColor: Colors.brown,
+                  activeDotColor: Color(0xff2c3440),
                   dotColor: Colors.black12
                   // strokeWidth: 5,
                 ),
@@ -109,7 +129,7 @@ class _RankSlideBarState extends State<RankSlideBar> {
           fit: BoxFit.cover,
           image: new AssetImage('assets/dogPicture2.jpg'),
         ),
-        boxShadow:  [BoxShadow(color: Colors.black87, blurRadius: blur, offset: Offset(offset, offset))],
+        boxShadow:  [BoxShadow(color: Colors.black54, blurRadius: blur, offset: Offset(offset, offset))],
 
       ),
       child: Container(
