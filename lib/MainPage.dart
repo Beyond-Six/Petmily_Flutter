@@ -4,9 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:new_project/drawer/MyInfoDrawer.dart';
+import 'package:new_project/screens/CommunityPage.dart';
 
 import 'package:new_project/screens/HomeScreen.dart';
 import 'package:new_project/screens/RankListScreen.dart';
+import 'package:new_project/screens/RecommendHome.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 // ignore_for_file: prefer_const_constructors
@@ -42,8 +44,9 @@ class MainPageState extends State<MainPage>{
   List<Widget> _buildScreens() {
     return [
       HomeScreen(),
-      Text('recommendation page'),
-      Text('community page'),
+      RecommendHome(),
+      CommunityPage()
+
     ];
   }
 

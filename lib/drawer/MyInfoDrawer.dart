@@ -36,7 +36,7 @@ class _MyInfoDrawerState extends State<MyInfoDrawer> {
                   ],
                 ),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor
+                  color: Color(0xff2C3440)
                 ),
               ),
               SelectPetComboBox(),
