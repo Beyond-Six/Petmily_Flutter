@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:new_project/components/RankTab.dart';
 
-class RecommendHome extends StatefulWidget{
+class RecommendHome4 extends StatefulWidget{
   @override
-  _RecommendHomeState createState() => _RecommendHomeState();
+  _RecommendHome4State createState() => _RecommendHome4State();
 }
-class _RecommendHomeState extends State<RecommendHome>{
+class _RecommendHome4State extends State<RecommendHome4>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +15,7 @@ class _RecommendHomeState extends State<RecommendHome>{
             child: Text.rich(
               TextSpan(
                 children: <TextSpan>[
-                  TextSpan(text:"Today's item for ",style: TextStyle(fontSize: 30,)),
+                  TextSpan(text:"Today's Stuff for ",style: TextStyle(fontSize: 30,)),
                   TextSpan(text:"Joe",style: TextStyle(fontSize: 30,decoration:TextDecoration.underline,color: Color(0xffFF5C5C)))
                 ]
               )
@@ -82,12 +82,12 @@ class _RecommendHomeState extends State<RecommendHome>{
                                       children: <Widget>[
                                       Container(
                                         height: 35,
-                                        child: Row(mainAxisAlignment: MainAxisAlignment.center,children: <Widget>[
+                                        child: Row(children: <Widget>[
                                           Container(
                                               width:70,height:25,padding: EdgeInsets.only(bottom: 6,top:0),
                                               decoration: BoxDecoration(borderRadius:BorderRadius.circular(30),color: Color(0xffFF5C5C)),
                                               child: Text("DRY",textAlign: TextAlign.center,
-                                              style: TextStyle(color: Colors.white,fontSize: 19),),
+                                              style: TextStyle(color: Colors.white,fontSize: 18),),
                                           ),
                                           Container(
                                             width:6,
@@ -96,7 +96,7 @@ class _RecommendHomeState extends State<RecommendHome>{
                                             width:110,height:25,padding: EdgeInsets.only(bottom: 6,top:0),
                                             decoration: BoxDecoration(borderRadius:BorderRadius.circular(30),color: Color(0xffFF5C5C)),
                                             child: Text("1~7 years",textAlign: TextAlign.center,
-                                              style: TextStyle(color: Colors.white,fontSize: 19),),
+                                              style: TextStyle(color: Colors.white,fontSize: 17),),
                                           ),
                                         ],
 
@@ -104,7 +104,7 @@ class _RecommendHomeState extends State<RecommendHome>{
                                       ),
                                       Container(
                                         height: 30,
-                                          child: Row(mainAxisAlignment: MainAxisAlignment.center,children: <Widget>[
+                                          child: Row(children: <Widget>[
                                             Container(
                                               width:120,height:25,padding:EdgeInsets.only(top:2),
                                               decoration: BoxDecoration(borderRadius:BorderRadius.circular(30),color: Color(0xffFF5C5C)),
@@ -118,7 +118,7 @@ class _RecommendHomeState extends State<RecommendHome>{
                                               width:92,height:25,padding: EdgeInsets.only(bottom: 6,top:0),
                                               decoration: BoxDecoration(borderRadius:BorderRadius.circular(30),color: Color(0xffFF5C5C)),
                                               child: Text("Hairball",textAlign: TextAlign.center,
-                                                style: TextStyle(color: Colors.white,fontSize: 19),),
+                                                style: TextStyle(color: Colors.white,fontSize: 17),),
                                             ),
                                           ],
 
@@ -143,9 +143,9 @@ class _RecommendHomeState extends State<RecommendHome>{
                     Container(width: 340, height: 128, alignment: Alignment.topCenter,
                         child: Column(
                           children: <Widget>[
-                            Text("The evaluation of other Buyers",
+                            Text("NUTRITIONAL INFORMATION",
                                 style: TextStyle(decoration:TextDecoration.underline,fontSize:17,color:Colors.black54,))
-                            ,Image.asset('assets/ev.png')
+                            ,Image.asset('assets/ev2.png')
                           ],
                         )),
 
@@ -157,10 +157,10 @@ class _RecommendHomeState extends State<RecommendHome>{
 
             ),
           ),
-          Container(
+          /*Container(
               height: 200,
               child: RankTab()
-          )
+          )*/
         ],
       ),
     );

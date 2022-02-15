@@ -32,7 +32,7 @@ class _Post_PageState extends State<Post_Page> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("cat1234"),
+                  Text("cat1234👨‍⚕"),
                   Text("hi!!!! hello!!!"),
                 ],
               ),

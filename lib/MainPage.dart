@@ -8,8 +8,10 @@ import 'package:new_project/screens/CommunityPage.dart';
 
 import 'package:new_project/screens/HomeScreen.dart';
 import 'package:new_project/screens/RankListScreen.dart';
-import 'package:new_project/screens/RecommendHome.dart';
+import 'package:new_project/screens/recommend/RecommendHome.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+
+import 'components/RankTab2.dart';
 
 // ignore_for_file: prefer_const_constructors
 
@@ -44,7 +46,7 @@ class MainPageState extends State<MainPage>{
   List<Widget> _buildScreens() {
     return [
       HomeScreen(),
-      RecommendHome(),
+      RankTab2(),
       CommunityPage()
 
     ];
