@@ -82,7 +82,7 @@ class _RankTab2State extends State<RankTab2> with TickerProviderStateMixin {
             MaterialPageRoute(builder: (context) => Category())); },
           icon: Icon(Icons.category, size: 23,color: Color(0xff2C3440)),
           label: Text("Show More Category",style: TextStyle(color:Color(0xff2C3440),fontSize: 20),),
-          style: OutlinedButton.styleFrom(side: BorderSide(width: 5.0,color: Color(0xffFF5C5C),style: BorderStyle.solid,),
+          style: OutlinedButton.styleFrom(side: BorderSide(width: 3.0,color: Color(0xffFF5C5C),style: BorderStyle.solid,),
           )
         )
       ],
