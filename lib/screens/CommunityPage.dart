@@ -139,7 +139,7 @@ class _CommunityPageState extends State<CommunityPage> {
                         FakePost(pet_post_list : Dog_Post_Fake_Info,tag_clicked : tagButtonSelected,pet_dropdown : _dropdown_items_pet,selected_dropdown : _selected_pet,locate_dropdown : _dropdown_items_locate,selected_location : _selected_locate),
                         if(tagButtonSelected[1] == true)
                           Container(
-                          width: 390,
+                          width: 400,
                           child: ShortsScreen(path: 'assets/video/test_video1.mp4',),
                           ),
                         ShortsBox(path: 'assets/video/test_video1.',),
