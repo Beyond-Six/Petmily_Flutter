@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -8,23 +9,24 @@ import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 
 class FakePost extends StatefulWidget {
-  const FakePost({Key? key, required this.pet_post_list,required this.tag_clicked}) : super(key: key);
+  const FakePost({Key? key, required this.pet_post_list,required this.tag_clicked,required this.dropdown, required this.selected_dropdown}) : super(key: key);
 
   final Pet_Post_List pet_post_list;
   final List<bool> tag_clicked;
+  final List<String> dropdown;
+  final String selected_dropdown;
   @override
-  _FakePostState createState() => _FakePostState(pet_post_list);
+  _FakePostState createState() => _FakePostState(pet_post_list,dropdown,selected_dropdown);
 
 }
 
 class _FakePostState extends State<FakePost> {
 
   bool favButtonSelected = false;
-  var tags = ["PetAdotp","Vets","Train","Walk","Food","Help"];
-  List<bool> tagButtonSelected = [false, false, false, false, false, false];
+  var tags = ["Hello","Vets","Train","Walk","Food","Help"];
+  int j=0;
 
-  _FakePostState(Pet_Post_List pet_post_list);
-  
+  _FakePostState(Pet_Post_List pet_post_list,List<String> dropdown,String selected_dropdown);
 
 
   @override
@@ -33,20 +35,28 @@ class _FakePostState extends State<FakePost> {
       onTap: (){
         pushNewScreen(
             context,
-            screen: Post_Page(tag_clicked: widget.tag_clicked,pet_post_list: widget.pet_post_list),
+            screen: Post_Page(tag_clicked: widget.tag_clicked,pet_post_list: widget.pet_post_list,dropdown :widget.dropdown,selected_dropdown : widget.selected_dropdown),
             withNavBar: true,
             pageTransitionAnimation: PageTransitionAnimation.fade
         );
       },
       child: Column(
         children: <Widget>[
-          //Set_Fake_Post_info(),
+          //차라리 여기서 조건문이 들어가면?
           Padding(padding: EdgeInsets.only(top: 5)),
-          MakeFakePost(widget.tag_clicked,widget.pet_post_list),
-          Container(
-              width: 410,
-              child: Divider(color: Colors.grey, thickness: 0.8)
-          ),
+          for(j=0;j<widget.tag_clicked.length;j++)
+            if(widget.selected_dropdown == widget.dropdown[j])
+              if(widget.tag_clicked[j]==true)
+                if(widget.pet_post_list.pet_tag_info[j] == true) //기본적으로 바로 밑줄밖에 영향을 안받는다. 그럼 2줄을 하고 싶을 땐 어떻게?
+                  MakeFakePost(widget.tag_clicked,widget.pet_post_list,widget.dropdown), //여기 braek가 들어가면 딱 끝나는데 그게 안되네
+          ///////////////여기서부터 해라
+          for(j=0;j<widget.tag_clicked.length;j++)
+            if(widget.tag_clicked[j]==true)
+              if(widget.pet_post_list.pet_tag_info[j] == true)
+                Container(
+                    width: 410,
+                    child: Divider(color: Colors.grey, thickness: 0.8)),
+          //Padding(padding: EdgeInsets.only(top: 5)),
         ],
       ),
     );
@@ -68,12 +78,12 @@ class _FakePostState extends State<FakePost> {
             TextButton(
 
                 child: Text(tags[index_info],
-                  style: TextStyle(fontSize: 20, color: Colors.black),),
+                  style : TextStyle(fontSize: 20,color: Colors.black, height: 1.2),),
                 onPressed: () {
                   setState(() {
                     //pet_post_fake_info.pet_tag_info_clicked[index_info]
-                      //  ? pet_post_fake_info.pet_tag_info_clicked[index_info] = false
-                        //: pet_post_fake_info.pet_tag_info_clicked[index_info] = true;
+                    //  ? pet_post_fake_info.pet_tag_info_clicked[index_info] = false
+                    //: pet_post_fake_info.pet_tag_info_clicked[index_info] = true;
                   });
                 }
             ),
@@ -82,7 +92,7 @@ class _FakePostState extends State<FakePost> {
       );
 
 
-  MakeFakePost(List<bool> tag_clicked,Pet_Post_List pet_post_fake_info) =>
+  MakeFakePost(List<bool> tag_clicked,Pet_Post_List pet_post_fake_info,List<String> dropdown) =>
 
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -103,32 +113,51 @@ class _FakePostState extends State<FakePost> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                      children: <Widget>[
-                        Row(children: [
-                          for(int i=0;i<pet_post_fake_info.pet_tag_info.length;i++)
-                            if(pet_post_fake_info.pet_tag_info[i])
-                              tag_bar(i, pet_post_fake_info),   //게시글의 상단에 태그 출력
-                        ],),
+                    children: <Widget>[
+                      Row(children: [
+                        for(int i=0;i<pet_post_fake_info.pet_tag_info.length;i++)
+                          if(pet_post_fake_info.pet_tag_info[i])
+                            tag_bar(i, pet_post_fake_info),   //게시글의 상단에 태그 출력
+                      ],),
 
-                        Text(pet_post_fake_info.post_date, style: TextStyle(fontSize: 20),),
+                      Text(pet_post_fake_info.post_date, style: TextStyle(fontSize: 20),),
                       //오른쪽에 배치
                     ],
                   ),
                 ),
                 Padding(padding: EdgeInsets.only(top: 5)),
-                Container(
-                  width: 390,
-                  height: 280,
 
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: CupertinoColors.white,
-                    image: DecorationImage(
-                      image: AssetImage(pet_post_fake_info.pet_file_name),
-                      fit: BoxFit.fitWidth
+                Container(
+                    width: 390,
+                    height: 280,
+
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: CupertinoColors.white,
+                      image: DecorationImage(
+                          image: AssetImage(pet_post_fake_info.pet_file_name),
+                          fit: BoxFit.fitWidth
                       ),
                     )
+                ),
+                Container(
+                  width: 350,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Expanded(
+                        child: AutoSizeText(
+                          pet_post_fake_info.post_data_string,
+                          style: TextStyle(fontSize: 20),
+
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      //Text(pet_post_fake_info.post_data_string,style: TextStyle(fontSize: 20),)
+                    ],
                   ),
+                ),
                 Padding(padding: EdgeInsets.only(top: 5)),
                 Container(
                   width: 390,
@@ -190,3 +219,4 @@ class _FakePostState extends State<FakePost> {
       );
 
 }
+
