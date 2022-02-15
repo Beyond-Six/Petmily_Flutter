@@ -43,6 +43,7 @@ dependencies:
   clay_containers: ^0.3.2
   image_picker: ^0.8.4+6
   carousel_slider: ^4.0.0
+  numberpicker: ^2.1.1
 
 dev_dependencies:
   flutter_test:
