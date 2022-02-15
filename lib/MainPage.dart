@@ -83,8 +83,8 @@ class MainPageState extends State<MainPage>{
         preferredSize: Size.fromHeight(40.0),
         child: AppBar(
           title: Container(
-            padding: EdgeInsets.all(5),
-            child: Image.asset('assets/title.png')
+            padding: EdgeInsets.all(0),
+            child: Image.asset('assets/logogo.png',height: 30,width: 120,)
           ),
           actions: <Widget> [
             IconButton(
@@ -95,7 +95,7 @@ class MainPageState extends State<MainPage>{
             ),
             IconButton(
               iconSize: 30,
-              icon: Icon(Icons.account_balance_wallet),
+              icon: Icon(Icons.account_circle),
               color: Color(0xff2c3440),
               onPressed: () {
                 _key.currentState!.openEndDrawer();
