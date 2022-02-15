@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:new_project/MainPage.dart';
 import 'package:new_project/components/RankBox.dart';
+import 'package:new_project/screens/category/Category.dart';
 import 'package:new_project/screens/recommend/RecommendHome.dart';
 import 'package:new_project/screens/recommend/RecommendHome2.dart';
 import 'package:new_project/screens/recommend/RecommendHome3.dart';
@@ -28,8 +31,8 @@ class _RankTab2State extends State<RankTab2> with TickerProviderStateMixin {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Container(
-          width: 300,padding:EdgeInsets.only(top: 6),
-          child: TabBar(
+          width: 330,padding:EdgeInsets.only(top: 6),
+          child: TabBar(indicatorColor: Color(0xffFF5C5C),
             tabs: [
               Container(
                   child: Text("Food", style: TextStyle(fontSize: 18.0))
@@ -42,19 +45,17 @@ class _RankTab2State extends State<RankTab2> with TickerProviderStateMixin {
               ),
               Container(
                   child: Text("Stuff", style: TextStyle(fontSize: 18.0))
-              )
-            ],
-            indicator: BoxDecoration(
+              ),
 
-            ),
-            labelColor: Colors.black,
+            ],
+            labelColor: Color(0xffFF5C5C),
             unselectedLabelColor: Colors.black26,
             controller: _tabController,
           ),
         ),
         Center(
             child: Container(
-            width: 350, height: 420,
+            width: 370, height: 420,
                 child: TabBarView(
                   controller: _tabController,
                   children: [
@@ -75,7 +76,15 @@ class _RankTab2State extends State<RankTab2> with TickerProviderStateMixin {
                 RankTabList(),
                 RankTabList(),
               ],
-            ))
+            )),
+        OutlinedButton.icon( onPressed: () { Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Category())); },
+          icon: Icon(Icons.category, size: 23,color: Color(0xff2C3440)),
+          label: Text("Show More Category",style: TextStyle(color:Color(0xff2C3440),fontSize: 20),),
+          style: OutlinedButton.styleFrom(side: BorderSide(width: 3.0,color: Color(0xffFF5C5C),style: BorderStyle.solid,),
+          )
+        )
       ],
     );
   }
