@@ -15,7 +15,7 @@ class _RecommendHomeState extends State<RecommendHome>{
             child: Text.rich(
               TextSpan(
                 children: <TextSpan>[
-                  TextSpan(text:"Today's item for ",style: TextStyle(fontSize: 30,)),
+                  TextSpan(text:"Today's Food for ",style: TextStyle(fontSize: 30,)),
                   TextSpan(text:"Joe",style: TextStyle(fontSize: 30,decoration:TextDecoration.underline,color: Color(0xffFF5C5C)))
                 ]
               )

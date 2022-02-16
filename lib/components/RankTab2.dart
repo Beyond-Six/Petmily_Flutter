@@ -80,10 +80,10 @@ class _RankTab2State extends State<RankTab2> with TickerProviderStateMixin {
         OutlinedButton.icon( onPressed: () { Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => Category())); },
-          icon: Icon(Icons.category, size: 23,color: Color(0xff2C3440)),
+          icon: Icon(Icons.menu, size: 23,color: Color(0xff2C3440)),
           label: Text("Show More Category",style: TextStyle(color:Color(0xff2C3440),fontSize: 20),),
           style: OutlinedButton.styleFrom(side: BorderSide(width: 3.0,color: Color(0xffFF5C5C),style: BorderStyle.solid,),
-          )
+          backgroundColor: Color(0x20ff5c5c))
         )
       ],
     );

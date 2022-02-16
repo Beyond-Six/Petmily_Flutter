@@ -33,27 +33,27 @@ class _RecommendHome2State extends State<RecommendHome2>{
                   children: <Widget>[
                     Row(
                         children: <Widget>[Expanded(child: Container(
-                          height:200,child:Image.asset('assets/pet_treat.png',fit:BoxFit.fitWidth)
+                          height:200,child:Image.asset('assets/treat_1.png',fit:BoxFit.fitWidth)
                         ),
                             flex:1
                         ),
                           Expanded(child: Container(
-                              height:188,
+                              height:189,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Column(mainAxisAlignment: MainAxisAlignment.start,children: <Widget>[
                                   Container(
-                                      child: Text("Blue Buffalo",
+                                      child: Text("Milk-Bone",
                                           style: TextStyle(fontSize: 15,color: Colors.black26,)),
                                     height:18,
                                   ),
                                 ],),
                                 Column(children: <Widget>[
                                   Container(
-                                    child: Text("Health Bars \n Natural Biscuit",
+                                    child: Text("Brushing Chews Dental",
                                         style: TextStyle(fontSize: 23,color: Colors.black,)),
-                                    height:28,
+                                    height:29,
                                   ),
                                 ],),
                                 Column(children: <Widget>[
@@ -63,13 +63,13 @@ class _RecommendHome2State extends State<RecommendHome2>{
                                 ],),
                                 Column(children: <Widget>[
                                   Container(
-                                    child:Text("4.6 (203)",style: TextStyle(fontSize:17,color:Colors.black54,)),
+                                    child:Text("4.5 (140)",style: TextStyle(fontSize:17,color:Colors.black54,)),
                                     height:20,
                                   ),
                                 ],),
                                 Column(children: <Widget>[
                                   Container(
-                                    child: Text("10kg / \$90",
+                                    child: Text("29.9oz / \$8.48",
                                         style: TextStyle(fontSize: 17)),
                                     height:22,
                                   ),
@@ -84,19 +84,19 @@ class _RecommendHome2State extends State<RecommendHome2>{
                                         height: 35,
                                         child: Row(children: <Widget>[
                                           Container(
-                                              width:70,height:25,padding: EdgeInsets.only(bottom: 6,top:0),
+                                              width:80,height:29,padding: EdgeInsets.only(bottom: 6,top:0),
                                               decoration: BoxDecoration(borderRadius:BorderRadius.circular(30),color: Color(0xffFF5C5C)),
-                                              child: Text("DRY",textAlign: TextAlign.center,
+                                              child: Text("Natural",textAlign: TextAlign.center,
                                               style: TextStyle(color: Colors.white,fontSize: 18),),
                                           ),
                                           Container(
                                             width:6,
                                           ),
                                           Container(
-                                            width:110,height:25,padding: EdgeInsets.only(bottom: 6,top:0),
+                                            width:80,height:29,padding: EdgeInsets.only(bottom: 6,top:0),
                                             decoration: BoxDecoration(borderRadius:BorderRadius.circular(30),color: Color(0xffFF5C5C)),
-                                            child: Text("1~7 years",textAlign: TextAlign.center,
-                                              style: TextStyle(color: Colors.white,fontSize: 17),),
+                                            child: Text("2~7 kgs",textAlign: TextAlign.center,
+                                              style: TextStyle(color: Colors.white,fontSize: 18),),
                                           ),
                                         ],
 
@@ -106,19 +106,19 @@ class _RecommendHome2State extends State<RecommendHome2>{
                                         height: 30,
                                           child: Row(children: <Widget>[
                                             Container(
-                                              width:120,height:25,padding:EdgeInsets.only(top:2),
+                                              width:110,height:29,padding:EdgeInsets.only(top:2),
                                               decoration: BoxDecoration(borderRadius:BorderRadius.circular(30),color: Color(0xffFF5C5C)),
-                                              child: Text("Weight Control",textAlign: TextAlign.center,
-                                                style: TextStyle(color: Colors.white,fontSize: 16),),
+                                              child: Text("Dental Care",textAlign: TextAlign.center,
+                                                style: TextStyle(color: Colors.white,fontSize: 18),),
                                             ),
                                             Container(
                                               width:6,
                                             ),
                                             Container(
-                                              width:92,height:25,padding: EdgeInsets.only(bottom: 6,top:0),
+                                              width:92,height:29,padding: EdgeInsets.only(bottom: 6,top:0),
                                               decoration: BoxDecoration(borderRadius:BorderRadius.circular(30),color: Color(0xffFF5C5C)),
-                                              child: Text("Hairball",textAlign: TextAlign.center,
-                                                style: TextStyle(color: Colors.white,fontSize: 17),),
+                                              child: Text("Nutritious",textAlign: TextAlign.center,
+                                                style: TextStyle(color: Colors.white,fontSize: 18),),
                                             ),
                                           ],
 
@@ -145,7 +145,7 @@ class _RecommendHome2State extends State<RecommendHome2>{
                           children: <Widget>[
                             Text("NUTRITIONAL INFORMATION",
                                 style: TextStyle(decoration:TextDecoration.underline,fontSize:17,color:Colors.black54,))
-                            ,Image.asset('assets/ev2.png')
+                            ,Image.asset('assets/treat_2.png')
                           ],
                         )),
 

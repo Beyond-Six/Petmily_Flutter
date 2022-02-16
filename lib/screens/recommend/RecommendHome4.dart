@@ -33,7 +33,7 @@ class _RecommendHome4State extends State<RecommendHome4>{
                   children: <Widget>[
                     Row(
                         children: <Widget>[Expanded(child: Container(
-                          height:200,child:Image.asset('assets/cat_food.png',fit:BoxFit.cover)
+                          height:200,child:Image.asset('assets/stuff2.png',fit:BoxFit.fitWidth)
                         ),
                             flex:1
                         ),
@@ -44,15 +44,15 @@ class _RecommendHome4State extends State<RecommendHome4>{
                               children: <Widget>[
                                 Column(mainAxisAlignment: MainAxisAlignment.start,children: <Widget>[
                                   Container(
-                                      child: Text("Royal Canin",
+                                      child: Text("Petmate",
                                           style: TextStyle(fontSize: 15,color: Colors.black26,)),
                                     height:18,
                                   ),
                                 ],),
                                 Column(children: <Widget>[
                                   Container(
-                                    child: Text("FIT",
-                                        style: TextStyle(fontSize: 26,color: Colors.black,)),
+                                    child: Text("Indigo Igloo",
+                                        style: TextStyle(fontSize: 22,color: Colors.black,)),
                                     height:28,
                                   ),
                                 ],),
@@ -63,13 +63,13 @@ class _RecommendHome4State extends State<RecommendHome4>{
                                 ],),
                                 Column(children: <Widget>[
                                   Container(
-                                    child:Text("4.6 (203)",style: TextStyle(fontSize:17,color:Colors.black54,)),
+                                    child:Text("4.3 (68)",style: TextStyle(fontSize:17,color:Colors.black54,)),
                                     height:20,
                                   ),
                                 ],),
                                 Column(children: <Widget>[
                                   Container(
-                                    child: Text("10kg / \$90",
+                                    child: Text("50 lb / \$159.99",
                                         style: TextStyle(fontSize: 17)),
                                     height:22,
                                   ),
@@ -84,18 +84,18 @@ class _RecommendHome4State extends State<RecommendHome4>{
                                         height: 35,
                                         child: Row(children: <Widget>[
                                           Container(
-                                              width:70,height:25,padding: EdgeInsets.only(bottom: 6,top:0),
+                                              width:80,height:27,padding: EdgeInsets.only(bottom: 6,top:0),
                                               decoration: BoxDecoration(borderRadius:BorderRadius.circular(30),color: Color(0xffFF5C5C)),
-                                              child: Text("DRY",textAlign: TextAlign.center,
+                                              child: Text("Plastic",textAlign: TextAlign.center,
                                               style: TextStyle(color: Colors.white,fontSize: 18),),
                                           ),
                                           Container(
                                             width:6,
                                           ),
                                           Container(
-                                            width:110,height:25,padding: EdgeInsets.only(bottom: 6,top:0),
+                                            width:100,height:27,padding: EdgeInsets.only(bottom: 6,top:0),
                                             decoration: BoxDecoration(borderRadius:BorderRadius.circular(30),color: Color(0xffFF5C5C)),
-                                            child: Text("1~7 years",textAlign: TextAlign.center,
+                                            child: Text("Outdoors",textAlign: TextAlign.center,
                                               style: TextStyle(color: Colors.white,fontSize: 17),),
                                           ),
                                         ],
@@ -106,18 +106,18 @@ class _RecommendHome4State extends State<RecommendHome4>{
                                         height: 30,
                                           child: Row(children: <Widget>[
                                             Container(
-                                              width:120,height:25,padding:EdgeInsets.only(top:2),
+                                              width:100,height:27,padding:EdgeInsets.only(top:2),
                                               decoration: BoxDecoration(borderRadius:BorderRadius.circular(30),color: Color(0xffFF5C5C)),
-                                              child: Text("Weight Control",textAlign: TextAlign.center,
-                                                style: TextStyle(color: Colors.white,fontSize: 16),),
+                                              child: Text("Extended",textAlign: TextAlign.center,
+                                                style: TextStyle(color: Colors.white,fontSize: 17),),
                                             ),
                                             Container(
                                               width:6,
                                             ),
                                             Container(
-                                              width:92,height:25,padding: EdgeInsets.only(bottom: 6,top:0),
+                                              width:90,height:27,padding: EdgeInsets.only(bottom: 6,top:0),
                                               decoration: BoxDecoration(borderRadius:BorderRadius.circular(30),color: Color(0xffFF5C5C)),
-                                              child: Text("Hairball",textAlign: TextAlign.center,
+                                              child: Text("Sturdy",textAlign: TextAlign.center,
                                                 style: TextStyle(color: Colors.white,fontSize: 17),),
                                             ),
                                           ],
@@ -143,9 +143,9 @@ class _RecommendHome4State extends State<RecommendHome4>{
                     Container(width: 340, height: 128, alignment: Alignment.topCenter,
                         child: Column(
                           children: <Widget>[
-                            Text("NUTRITIONAL INFORMATION",
+                            Text("REAL USER\'s REVIEW",
                                 style: TextStyle(decoration:TextDecoration.underline,fontSize:17,color:Colors.black54,))
-                            ,Image.asset('assets/ev2.png')
+                            ,Image.asset('assets/stuff3.png')
                           ],
                         )),
 
