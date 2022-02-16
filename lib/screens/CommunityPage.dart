@@ -54,46 +54,50 @@ class _CommunityPageState extends State<CommunityPage> {
       appBar: AppBar(
         backgroundColor: Color(0xffFFEDE2),
         actions: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          Column(
             children: [
-              Container(child: DropdownButton(
-                value: _selected_locate,
-                items: _dropdown_items_locate.map(
-                        (value) {
-                      return DropdownMenuItem(
-                          value: value,
-                          child: Text(value)
-                      );
-                    }
-                ).toList(),
-                onChanged: (value) {
-                  setState(() {
-                    _selected_locate = value as String;
-                  });
-                },
-              )),
-              Container(child: DropdownButton(
-                value: _selected_pet,
-                items: _dropdown_items_pet.map(
-                        (value) {
-                      return DropdownMenuItem(
-                          value: value,
-                          child: Text(value)
-                      );
-                    }
-                ).toList(),
-                onChanged: (value) {
-                  setState(() {
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(child: DropdownButton(
+                    value: _selected_locate,
+                    items: _dropdown_items_locate.map(
+                            (value) {
+                          return DropdownMenuItem(
+                              value: value,
+                              child: Text(value)
+                          );
+                        }
+                    ).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        _selected_locate = value as String;
+                      });
+                    },
+                  )),
+                  Container(child: DropdownButton(
+                    value: _selected_pet,
+                    items: _dropdown_items_pet.map(
+                            (value) {
+                          return DropdownMenuItem(
+                              value: value,
+                              child: Text(value)
+                          );
+                        }
+                    ).toList(),
+                    onChanged: (value) {
+                      setState(() {
 
-                    print(value.toString());
-                    _selected_pet = value as String;
-                    print(_selected_pet.toString());
-                  });
-                },
-              )),
+                        print(value.toString());
+                        _selected_pet = value as String;
+                        print(_selected_pet.toString());
+                      });
+                    },
+                  )),
 
-              Padding( padding:EdgeInsets.only(right: 10))
+                  Padding( padding:EdgeInsets.only(right: 10))
+                ],
+              ),
             ],
           )
         ],
@@ -129,27 +133,41 @@ class _CommunityPageState extends State<CommunityPage> {
             ),
 
             Center(
-              child: Column(
-                children: [
+              child: Expanded(
+                child: Column(
+                  children: [
 
-                  Container(
-                    child: Column(
-                      children: <Widget>[
+                    Container(
+                      child: Column(
+                        children: <Widget>[
 
-                        FakePost(pet_post_list : Dog_Post_Fake_Info,tag_clicked : tagButtonSelected,pet_dropdown : _dropdown_items_pet,selected_dropdown : _selected_pet,locate_dropdown : _dropdown_items_locate,selected_location : _selected_locate),
-                        if(tagButtonSelected[1] == true)
-                          Container(
-                          width: 400,
-                          child: ShortsScreen(path: 'assets/video/test_video1.mp4',),
-                          ),
-                        ShortsBox(path: 'assets/video/test_video1.',),
-                        FakePost(pet_post_list : Cat_Post_Fake_Info,tag_clicked : tagButtonSelected,pet_dropdown : _dropdown_items_pet,selected_dropdown : _selected_pet,locate_dropdown : _dropdown_items_locate,selected_location : _selected_locate),
-                        FakePost(pet_post_list : Bird_Post_Fake_Info,tag_clicked : tagButtonSelected,pet_dropdown : _dropdown_items_pet,selected_dropdown : _selected_pet,locate_dropdown : _dropdown_items_locate,selected_location : _selected_locate),
-                        FakePost(pet_post_list : Rept_Post_Fake_Info,tag_clicked : tagButtonSelected,pet_dropdown : _dropdown_items_pet,selected_dropdown : _selected_pet,locate_dropdown : _dropdown_items_locate,selected_location : _selected_locate),
-                      ],
+                          FakePost(pet_post_list : Dog_Post_Fake_Info,tag_clicked : tagButtonSelected,pet_dropdown : _dropdown_items_pet,selected_dropdown : _selected_pet,locate_dropdown : _dropdown_items_locate,selected_location : _selected_locate),
+                          if((tagButtonSelected[1] == true) || ((tagButtonSelected[0] == false)&&(tagButtonSelected[1] == false)&&(tagButtonSelected[2] == false)&&(tagButtonSelected[3] == false)&&(tagButtonSelected[4] == false)&&(tagButtonSelected[5] == false)))
+                            Text("Shorts", style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w500)),
+                          if((tagButtonSelected[1] == true) || ((tagButtonSelected[0] == false)&&(tagButtonSelected[1] == false)&&(tagButtonSelected[2] == false)&&(tagButtonSelected[3] == false)&&(tagButtonSelected[4] == false)&&(tagButtonSelected[5] == false)))
+                            Container(
+                                height: 170,
+                                child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: 5,
+                                    itemBuilder: (BuildContext context, int index){
+                                      return ShortsBox(path: 'assets/video/test_video1.',);
+                                    }
+                                )
+                            ),
+                          if((tagButtonSelected[1] == true) || ((tagButtonSelected[0] == false)&&(tagButtonSelected[1] == false)&&(tagButtonSelected[2] == false)&&(tagButtonSelected[3] == false)&&(tagButtonSelected[4] == false)&&(tagButtonSelected[5] == false)))
+                            Container(
+                              width: 410,
+                              child: Divider(color: Colors.grey, thickness: 0.8)),
+                          //ShortsBox(path: 'assets/video/test_video1.',),
+                          FakePost(pet_post_list : Cat_Post_Fake_Info,tag_clicked : tagButtonSelected,pet_dropdown : _dropdown_items_pet,selected_dropdown : _selected_pet,locate_dropdown : _dropdown_items_locate,selected_location : _selected_locate),
+                          FakePost(pet_post_list : Bird_Post_Fake_Info,tag_clicked : tagButtonSelected,pet_dropdown : _dropdown_items_pet,selected_dropdown : _selected_pet,locate_dropdown : _dropdown_items_locate,selected_location : _selected_locate),
+                          FakePost(pet_post_list : Rept_Post_Fake_Info,tag_clicked : tagButtonSelected,pet_dropdown : _dropdown_items_pet,selected_dropdown : _selected_pet,locate_dropdown : _dropdown_items_locate,selected_location : _selected_locate),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
 
@@ -197,7 +215,7 @@ class _CommunityPageState extends State<CommunityPage> {
   void Set_Fake_Post_info(){
     Dog_Post_Fake_Info.pet_name="Dogs";
     Dog_Post_Fake_Info.pet_file_name="assets/dogPicture2.jpg";
-    Dog_Post_Fake_Info.post_date="13 : 10";
+    Dog_Post_Fake_Info.post_date="13 : 15";
     Dog_Post_Fake_Info.post_auther="dog4541";
     Dog_Post_Fake_Info.post_auther_classes="";
     Dog_Post_Fake_Info.post_data_string = "My dog like this food.\nI think it's delicious for him..";
@@ -206,7 +224,7 @@ class _CommunityPageState extends State<CommunityPage> {
 
     Cat_Post_Fake_Info.pet_name="Cats";
     Cat_Post_Fake_Info.pet_file_name="assets/cat.png";
-    Cat_Post_Fake_Info.post_date="13 : 11";
+    Cat_Post_Fake_Info.post_date="13 : 10";
     Cat_Post_Fake_Info.post_auther="cat1234";
     Cat_Post_Fake_Info.post_auther_classes="vet";
     Cat_Post_Fake_Info.post_data_string = "Hello, I am veterinarian 'Kim'. How much do you know about cats? Are cats really a creature we don't understand?";
@@ -215,7 +233,7 @@ class _CommunityPageState extends State<CommunityPage> {
 
     Bird_Post_Fake_Info.pet_name="Birds";
     Bird_Post_Fake_Info.pet_file_name="assets/bird.png";
-    Bird_Post_Fake_Info.post_date="13 : 12";
+    Bird_Post_Fake_Info.post_date="12 : 12";
     Bird_Post_Fake_Info.post_auther="bird0001";
     Bird_Post_Fake_Info.post_auther_classes="";
     Bird_Post_Fake_Info.post_data_string = "I am Bird. Do you Love me?";
@@ -224,7 +242,7 @@ class _CommunityPageState extends State<CommunityPage> {
 
     Rept_Post_Fake_Info.pet_name="Repts";
     Rept_Post_Fake_Info.pet_file_name="assets/rept.png";
-    Rept_Post_Fake_Info.post_date="13 : 13";
+    Rept_Post_Fake_Info.post_date="12 : 10";
     Rept_Post_Fake_Info.post_auther="rept984";
     Rept_Post_Fake_Info.post_auther_classes="";
     Rept_Post_Fake_Info.post_data_string = "I'm hungry";

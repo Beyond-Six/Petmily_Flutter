@@ -107,7 +107,7 @@ class _FakePostState extends State<FakePost> {
 
   MakeFakePost(List<bool> tag_clicked,Pet_Post_List pet_post_fake_info,List<String> dropdown) =>
       Container(
-        height: 460,
+        height: 430,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -143,7 +143,7 @@ class _FakePostState extends State<FakePost> {
 
                     Container(
                         width: 390,
-                        height: 280,
+                        height: 250,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: Colors.white30,
@@ -165,7 +165,7 @@ class _FakePostState extends State<FakePost> {
                             child: AutoSizeText(
                               pet_post_fake_info.post_data_string,
                               style: TextStyle(fontSize: 20),
-                              minFontSize: 16,
+                              minFontSize: 12,
                               maxLines: 3,
 
                               overflow: TextOverflow.ellipsis,
@@ -190,7 +190,13 @@ class _FakePostState extends State<FakePost> {
                           Row(
                             children: [
                               if(widget.pet_post_list.post_auther_classes == 'vet')
-                                Icon(Icons.add,color: Colors.green),
+                                CircleAvatar(
+                                  backgroundColor: Colors.green,
+                                  backgroundImage: AssetImage('assets/vet.png'),
+                                  radius: 10,
+                                  foregroundColor: Colors.green,
+                                ),
+                                //Icon(Icons.add,color: Colors.green),
                               if(widget.pet_post_list.post_auther_classes != 'vet')
                                 Icon(Icons.anchor,color: Colors.amberAccent),
                               Padding(padding: EdgeInsets.all(5)),
