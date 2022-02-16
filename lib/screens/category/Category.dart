@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_project/screens/category/cate_shop4.dart';
 import 'package:new_project/screens/recommend/RecommendHome.dart';
 import 'package:new_project/screens/recommend/RecommendHome2.dart';
 import 'package:new_project/screens/recommend/RecommendHome3.dart';
@@ -6,6 +7,7 @@ import 'package:new_project/screens/recommend/RecommendHome4.dart';
 
 import 'cate_shop.dart';
 import 'cate_shop2.dart';
+import 'cate_shop3.dart';
 
 class Category extends StatefulWidget{
   @override
@@ -58,8 +60,8 @@ class _CategoryState extends State<Category> with TickerProviderStateMixin{
                     controller: _tabController,
                     children: [
                       cate_shop2(),
-                      RecommendHome2(),
-                      RecommendHome3(),
+                      cate_shop3(),
+                      cate_shop4(),
                     ],
                   )
               )),
