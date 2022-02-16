@@ -72,7 +72,7 @@ class _RankTab2State extends State<RankTab2> with TickerProviderStateMixin {
               controller: _tabController,
               children: [
                 RankTabList(tabName: "Food"),
-                RankTabList(tabName: "Traet"),
+                RankTabList(tabName: "Treat"),
                 RankTabList(tabName: "Toy"),
                 RankTabList(tabName: "Stuff"),
               ],

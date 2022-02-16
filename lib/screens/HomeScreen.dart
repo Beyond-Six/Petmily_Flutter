@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:new_project/components/BrandBar.dart';
 import 'package:new_project/components/CategoryBar.dart';
 import 'package:new_project/components/RankBox.dart';
 import 'package:new_project/components/RankSlideBar.dart';
@@ -15,7 +16,9 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
+GlobalKey<_HomeScreenState> homeScreenKey = GlobalKey();
 class _HomeScreenState extends State<HomeScreen> {
+  late String selectedPet = "Joe";
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,19 +29,15 @@ class _HomeScreenState extends State<HomeScreen> {
             children: <Widget>[
               Container(
                 height: 50,
-                  child: Text.rich(
-                      TextSpan(text: "My PETMILY is ",
-                          style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.w500, color: Color(0xff2c3440)),
-                          children: const <TextSpan>[
-                            TextSpan(text: 'Joe', style: TextStyle(color: Colors.redAccent, decoration: TextDecoration.underline))
-                          ]
-                      )
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("My PETMILY is ", style: TextStyle(fontSize: 40.0, color:Theme.of(context).primaryColor, fontWeight: FontWeight.w500),),
+                      Text(selectedPet, style: TextStyle(fontSize: 40.0, color: Colors.redAccent, fontWeight: FontWeight.w500, decoration: TextDecoration.underline))
+                    ]
                   )
               ),
-              Container(
-                  width: 350,
-                  child: Divider(color: Colors.grey, thickness: 0.2)
-              ),
+              Divider(color: Colors.grey, thickness: 0.2, height: 20),
               Padding(
                 padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
                 child: Row(
@@ -66,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Container(
                         child: Column(
                           children: <Widget> [
-                            Text("Joe Will Love It", style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w500)),
+                            Text(selectedPet + " Will Love It", style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w500)),
 
                           ],
                         )
@@ -80,9 +79,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
                 child: RankTab()
               ),
+              SizedBox(
+                height: 10,
+              ),
               Container(
                 padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
                 child: ShortsBar()
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                  padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
+                  child: BrandBar()
               ),
               SizedBox(
                 height: 20,
@@ -92,5 +101,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       )
     );
+  }
+
+  void SetSelectedPet(String newValue){
+    setState(() {
+        selectedPet = newValue;
+    });
   }
 }

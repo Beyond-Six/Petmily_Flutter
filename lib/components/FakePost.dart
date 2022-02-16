@@ -69,7 +69,7 @@ class _FakePostState extends State<FakePost> {
                     Container(
                         width: 410,
                         child: Divider(color: Colors.grey, thickness: 0.8)),
-              //Padding(padding: EdgeInsets.only(top: 5)),
+          //Padding(padding: EdgeInsets.only(top: 5)),
         ],
       ),
     );
@@ -111,138 +111,137 @@ class _FakePostState extends State<FakePost> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-              Container(
+            Container(
 
-                child: Column(
+              child: Column(
 
-                  children: [
-                    Container(
+                children: [
+                  Container(
 
+                    width: 390,
+                    height: 35,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white30,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                      children: <Widget>[
+                        Row(children: [
+                          for(int i=0;i<pet_post_fake_info.pet_tag_info.length;i++)
+                            if(pet_post_fake_info.pet_tag_info[i])
+                              tag_bar(i, pet_post_fake_info),   //게시글의 상단에 태그 출력
+                        ],),
+
+                        Text(pet_post_fake_info.post_date, style: TextStyle(fontSize: 20),),
+                        //오른쪽에 배치
+                      ],
+                    ),
+                  ),
+                  Padding(padding: EdgeInsets.only(top: 5)),
+
+                  Container(
                       width: 390,
-                      height: 35,
+                      height: 250,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(20),
                         color: Colors.white30,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        image:
+                        DecorationImage(
+                            image: AssetImage(pet_post_fake_info.pet_file_name),
+                            fit: BoxFit.fitWidth
+                        ),
 
-                        children: <Widget>[
-                          Row(children: [
-                            for(int i=0;i<pet_post_fake_info.pet_tag_info.length;i++)
-                              if(pet_post_fake_info.pet_tag_info[i])
-                                tag_bar(i, pet_post_fake_info),   //게시글의 상단에 태그 출력
-                          ],),
+                      )
+                  ),
+                  Container(
+                    width: 350,
+                    height: (widget.pet_post_list.post_auther_classes == 'vet') ? 100 : 60,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Expanded(
+                          child: AutoSizeText(
+                            pet_post_fake_info.post_data_string,
+                            style: TextStyle(fontSize: 20),
+                            minFontSize: 12,
+                            maxLines: 3,
 
-                          Text(pet_post_fake_info.post_date, style: TextStyle(fontSize: 20),),
-                          //오른쪽에 배치
-                        ],
-                      ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        //Text(pet_post_fake_info.post_data_string,style: TextStyle(fontSize: 20),)
+                      ],
                     ),
-                    Padding(padding: EdgeInsets.only(top: 5)),
-
-                    Container(
-                        width: 390,
-                        height: 250,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white30,
-                          image:
-                                DecorationImage(
-                                    image: AssetImage(pet_post_fake_info.pet_file_name),
-                                    fit: BoxFit.fitWidth
-                                ),
-
-                        )
+                  ),
+                  Padding(padding: EdgeInsets.only(top: 5)),
+                  Container(
+                    width: 390,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white30,
                     ),
-                    Container(
-                      width: 350,
-                      height: (widget.pet_post_list.post_auther_classes == 'vet') ? 100 : 60,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Expanded(
-                            child: AutoSizeText(
-                              pet_post_fake_info.post_data_string,
-                              style: TextStyle(fontSize: 20),
-                              minFontSize: 12,
-                              maxLines: 3,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
 
-                              overflow: TextOverflow.ellipsis,
+                        Row(
+                          children: [
+                            if(widget.pet_post_list.post_auther_classes == 'vet')
+                              CircleAvatar(
+                                backgroundColor: Colors.green,
+                                backgroundImage: AssetImage('assets/vet.png'),
+                                radius: 10,
+                                foregroundColor: Colors.green,
+                              ),
+                            //Icon(Icons.add,color: Colors.green),
+                            if(widget.pet_post_list.post_auther_classes != 'vet')
+                              Icon(Icons.anchor,color: Colors.amberAccent),
+                            Padding(padding: EdgeInsets.all(5)),
+                            Text(pet_post_fake_info.post_auther, style: TextStyle(fontSize: 20),),
+                          ],
+                        ),
+
+                        Row(
+                          children: [
+                            IconButton(
+                              padding: EdgeInsets.all(0.0),
+                              icon: Icon(
+                                  favButtonSelected ? Icons.favorite : Icons
+                                      .favorite_border),
+                              color: Colors.black,
+                              onPressed: () {
+                                setState(() {
+                                  favButtonSelected
+                                      ? favButtonSelected = false
+                                      : favButtonSelected = true;
+                                });
+                              },
                             ),
-                          ),
-                          //Text(pet_post_fake_info.post_data_string,style: TextStyle(fontSize: 20),)
-                        ],
-                      ),
+                            IconButton(
+                              padding: EdgeInsets.all(0.0),
+                              icon: Icon(Icons.add_comment),
+                              color: Colors.black,
+                              onPressed: () {
+                                setState(() {
+
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                        //IconButton(onPressed: (){}, icon: const Icon(Icons.add_comment) ),
+
+                      ],
                     ),
-                    Padding(padding: EdgeInsets.only(top: 5)),
-                    Container(
-                      width: 390,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white30,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-
-                          Row(
-                            children: [
-                              if(widget.pet_post_list.post_auther_classes == 'vet')
-                                CircleAvatar(
-                                  backgroundColor: Colors.green,
-                                  backgroundImage: AssetImage('assets/vet.png'),
-                                  radius: 10,
-                                  foregroundColor: Colors.green,
-                                ),
-                                //Icon(Icons.add,color: Colors.green),
-                              if(widget.pet_post_list.post_auther_classes != 'vet')
-                                Icon(Icons.anchor,color: Colors.amberAccent),
-                              Padding(padding: EdgeInsets.all(5)),
-                              Text(pet_post_fake_info.post_auther, style: TextStyle(fontSize: 20),),
-                            ],
-                          ),
-
-                          Row(
-                            children: [
-                              IconButton(
-                                padding: EdgeInsets.all(0.0),
-                                icon: Icon(
-                                    favButtonSelected ? Icons.favorite : Icons
-                                        .favorite_border),
-                                color: Colors.black,
-                                onPressed: () {
-                                  setState(() {
-                                    favButtonSelected
-                                        ? favButtonSelected = false
-                                        : favButtonSelected = true;
-                                  });
-                                },
-                              ),
-                              IconButton(
-                                padding: EdgeInsets.all(0.0),
-                                icon: Icon(Icons.add_comment),
-                                color: Colors.black,
-                                onPressed: () {
-                                  setState(() {
-
-                                  });
-                                },
-                              ),
-                            ],
-                          ),
-                          //IconButton(onPressed: (){}, icon: const Icon(Icons.add_comment) ),
-
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
+            ),
           ],
         ),
       );
 
 }
-

@@ -1,7 +1,9 @@
 import 'package:clay_containers/clay_containers.dart';
 import 'package:flutter/material.dart';
+import 'package:new_project/screens/HomeScreen.dart';
 
 class MyInfoDrawer extends StatefulWidget {
+
   const MyInfoDrawer({Key? key}) : super(key: key);
 
   @override
@@ -9,7 +11,6 @@ class MyInfoDrawer extends StatefulWidget {
 }
 
 class _MyInfoDrawerState extends State<MyInfoDrawer> {
-  String selectedPet = 'Joe';
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +57,6 @@ class SelectPetComboBox extends StatefulWidget {
 }
 
 class _SelectPetComboBoxState extends State<SelectPetComboBox> {
-  String selectedPet = 'Joe';
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,7 @@ class _SelectPetComboBoxState extends State<SelectPetComboBox> {
           Text("My PETMILY is ", style: TextStyle(fontSize: 25, color: Color(0xff2c3440))),
           SizedBox(width: 20),
           DropdownButton<String>(
-            value: selectedPet,
+            value: homeScreenKey.currentState?.selectedPet,
             icon: const Icon(Icons.keyboard_arrow_down),
             iconSize: 30,
             elevation: 16,
@@ -82,8 +82,8 @@ class _SelectPetComboBoxState extends State<SelectPetComboBox> {
             ),
             onChanged: (String? newValue) {
               setState(() {
-                selectedPet = newValue!;
-                cardKey.currentState?.setPetProfile(newValue);
+                cardKey.currentState?.SetPetProfile(newValue!);
+                homeScreenKey.currentState?.SetSelectedPet(newValue!);
               });
             },
             items: <String>['Joe', 'Sunny'].map<DropdownMenuItem<String>>((String value) {
@@ -187,7 +187,7 @@ class _PetCardState extends State<PetCard> {
   final Map<String, String> typeMap = {'Joe':'Dog', 'Sunny':'Cat'};
   final Map<String, String> ageMap = {'Joe':'2 month', 'Sunny':'1 month'};
   final Map<String, String> breedMap = {'Joe':'Husky', 'Sunny':'Turkish Angora'};
-  void setPetProfile(String setName){
+  void SetPetProfile(String setName){
     setState(() {
       petName = setName;
       imgPath = 'assets/image/profile_' + setName.toLowerCase() + '.png';

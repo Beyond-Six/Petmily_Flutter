@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:new_project/screens/ProductScreen.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
 class RankBox extends StatefulWidget {
   final String tabName;
@@ -36,46 +38,60 @@ class _RankBoxState extends State<RankBox> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 170,
-      padding: const EdgeInsets.all(6.0),
-      margin: EdgeInsets.fromLTRB(10.0, 2.0, 10.0, 2.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10.0),
-        boxShadow: [BoxShadow(color: Colors.grey, offset: Offset(4.0, 4.0), blurRadius: 6.0, spreadRadius: 0.2)],
+    return InkWell(
+      onTap: () {
+        print(productList[widget.tabName]?[widget.idx]);
+        pushNewScreen(
+              context,
+              screen: ProductScreen(
+                productInfo: productList[widget.tabName]?[widget.idx],
+                imgPath: 'assets/image/productImg/product' + widget.tabName + widget.idx.toString() + ".jpg"
+              ),
+            withNavBar: true,
+            pageTransitionAnimation: PageTransitionAnimation.fade
+          );
+      },
+      child: Container(
+        width: 170,
+        padding: const EdgeInsets.all(6.0),
+        margin: EdgeInsets.fromLTRB(10.0, 2.0, 10.0, 2.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [BoxShadow(color: Colors.grey, offset: Offset(4.0, 4.0), blurRadius: 6.0, spreadRadius: 0.2)],
 
-      ),
-      child: Column(
-        children: <Widget>[
-          Container(
-            width: 80.0,
-            height: 80.0,
-            child: Image.asset('assets/image/productImg/product' + widget.tabName + widget.idx.toString() + ".jpg", fit: BoxFit.fill)
-          ),
-          SizedBox(height: 4.0),
-          Container(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text((widget.idx + 1).toString() + ". " + productList[widget.tabName]?[widget.idx][0], style: TextStyle(fontSize: 14.0, color: Colors.black54)),
-                      Text(productList[widget.tabName]![widget.idx][1], style: TextStyle(fontSize: 18.0, color: Colors.black))
-                    ]
+        ),
+        child: Column(
+          children: <Widget>[
+            Container(
+              width: 80.0,
+              height: 80.0,
+              child: Image.asset('assets/image/productImg/product' + widget.tabName + widget.idx.toString() + ".jpg", fit: BoxFit.fitWidth)
+            ),
+            SizedBox(height: 4.0),
+            Container(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text((widget.idx + 1).toString() + ". " + productList[widget.tabName]?[widget.idx][0], style: TextStyle(fontSize: 14.0, color: Colors.black54)),
+                        Text(productList[widget.tabName]![widget.idx][1], style: TextStyle(fontSize: 18.0, color: Colors.black))
+                      ]
+                    )
+                  ),
+                  Container(
+                    child: Text(productList[widget.tabName]![widget.idx][2], style: TextStyle(fontSize: 18.0, color: Colors.black)),
                   )
-                ),
-                Container(
-                  child: Text(productList[widget.tabName]![widget.idx][2], style: TextStyle(fontSize: 18.0, color: Colors.black)),
-                )
-              ],
+                ],
+              )
             )
-          )
 
-        ]
+          ]
+        ),
       ),
     );
   }
