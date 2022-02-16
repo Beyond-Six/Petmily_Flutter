@@ -52,21 +52,21 @@ class _RankListComponentState extends State<RankListComponent> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        pushNewScreen(
-            context,
-            screen: ProductScreen(),
-            withNavBar: true,
-            pageTransitionAnimation: PageTransitionAnimation.fade
-        );
-      },
+      // onTap: (){
+      //   pushNewScreen(
+      //       context,
+      //       screen: ProductScreen(),
+      //       withNavBar: true,
+      //       pageTransitionAnimation: PageTransitionAnimation.fade
+      //   );
+      // },
       child: Container(
         margin: EdgeInsets.all(10),
         height: 90,
         child: Row(
           children: [
             Text('${widget.index}', style: TextStyle(fontSize: 20),),
-            Image.asset('assets/product.png'),
+            Image.asset('assets/productImg/productFood0.jpg'),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
