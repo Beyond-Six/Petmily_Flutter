@@ -11,7 +11,6 @@ class MyInfoDrawer extends StatefulWidget {
 }
 
 class _MyInfoDrawerState extends State<MyInfoDrawer> {
-  late String selectedPet;
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +57,6 @@ class SelectPetComboBox extends StatefulWidget {
 }
 
 class _SelectPetComboBoxState extends State<SelectPetComboBox> {
-  String selectedPet;
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +71,7 @@ class _SelectPetComboBoxState extends State<SelectPetComboBox> {
           Text("My PETMILY is ", style: TextStyle(fontSize: 25, color: Color(0xff2c3440))),
           SizedBox(width: 20),
           DropdownButton<String>(
-            value: selectedPet,
+            value: homeScreenKey.currentState?.selectedPet,
             icon: const Icon(Icons.keyboard_arrow_down),
             iconSize: 30,
             elevation: 16,
@@ -84,9 +82,8 @@ class _SelectPetComboBoxState extends State<SelectPetComboBox> {
             ),
             onChanged: (String? newValue) {
               setState(() {
-                selectedPet = newValue!;
-                cardKey.currentState?.SetPetProfile(newValue);
-                homeScreenKey.currentState?.SetSelectedPet(newValue);
+                cardKey.currentState?.SetPetProfile(newValue!);
+                homeScreenKey.currentState?.SetSelectedPet(newValue!);
               });
             },
             items: <String>['Joe', 'Sunny'].map<DropdownMenuItem<String>>((String value) {
