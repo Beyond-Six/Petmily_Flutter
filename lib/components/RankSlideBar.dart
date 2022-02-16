@@ -158,7 +158,7 @@ class _RankSlideBarState extends State<RankSlideBar> {
               child: Container(
                 child: Text(subTitle[idx], style: TextStyle(fontSize: 20, color: Colors.white70, height: 1.4)),
                 decoration: BoxDecoration(
-                    boxShadow: [BoxShadow(color: Colors.black54, blurRadius: 20, offset: Offset(0, 0))]
+                    boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 20, offset: Offset(0, 0))]
                 ),
               ),
               visible: visible,
@@ -167,7 +167,7 @@ class _RankSlideBarState extends State<RankSlideBar> {
               child: Container(
                 child: Text(mainTitle[idx], style: TextStyle(fontSize: 30, color: Colors.white, height: 1.4)),
                 decoration: BoxDecoration(
-                  boxShadow: [BoxShadow(color: Colors.black54, blurRadius: 20, offset: Offset(0, 0))]
+                  boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 20, offset: Offset(0, 0))]
                 ),
               ),
               visible: visible,

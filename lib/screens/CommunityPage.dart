@@ -142,7 +142,7 @@ class _CommunityPageState extends State<CommunityPage> {
                           width: 390,
                           child: ShortsScreen(path: 'assets/video/test_video1.mp4',),
                           ),
-                        ShortsBox(path: 'assets/video/test_video1.',),
+                        ShortsBox(path: 'assets/video/test_video1',),
                         FakePost(pet_post_list : Cat_Post_Fake_Info,tag_clicked : tagButtonSelected,pet_dropdown : _dropdown_items_pet,selected_dropdown : _selected_pet,locate_dropdown : _dropdown_items_locate,selected_location : _selected_locate),
                         FakePost(pet_post_list : Bird_Post_Fake_Info,tag_clicked : tagButtonSelected,pet_dropdown : _dropdown_items_pet,selected_dropdown : _selected_pet,locate_dropdown : _dropdown_items_locate,selected_location : _selected_locate),
                         FakePost(pet_post_list : Rept_Post_Fake_Info,tag_clicked : tagButtonSelected,pet_dropdown : _dropdown_items_pet,selected_dropdown : _selected_pet,locate_dropdown : _dropdown_items_locate,selected_location : _selected_locate),

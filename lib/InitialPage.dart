@@ -147,16 +147,16 @@ class _InitialPageState extends State<InitialPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     InkWell(
-                        child: Text('Later', style: TextStyle(color: Colors.redAccent, fontSize: 30, fontWeight: FontWeight.w500)),
+                        child: Text('Later', style: TextStyle(color: Color(0xff2c3440), fontSize: 30, fontWeight: FontWeight.w500)),
                         onTap: () {
-                          Get.off(() => LandingPage());
+                          Get.off(() => LandingPage(), transition: Transition.fadeIn);
                         }
                     ),
                     SizedBox(width: 40),
                     InkWell(
                       child: Text('Done', style: TextStyle(color: Colors.redAccent, fontSize: 30, fontWeight: FontWeight.w500)),
                       onTap: () {
-                        Get.off(() => LandingPage());
+                        Get.off(() => LandingPage(), transition: Transition.fadeIn);
                       }
                     )
 
