@@ -43,7 +43,9 @@ dependencies:
   clay_containers: ^0.3.2
   image_picker: ^0.8.4+6
   carousel_slider: ^4.0.0
+  numberpicker: ^2.1.1
   auto_size_text: ^3.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -71,7 +73,8 @@ flutter:
     - assets/
     - assets/video/
     - assets/image/
-    - assets/cate/
+    - assets/image/productImg/
+    - assets/image/mainBanner/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

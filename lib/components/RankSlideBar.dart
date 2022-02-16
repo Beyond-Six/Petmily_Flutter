@@ -77,7 +77,7 @@ class _RankSlideBarState extends State<RankSlideBar> {
                   itemCount : 5,
                   itemBuilder: (context, int currentIdx) {
                     bool active = currentIdx == currentPage;
-                    return _buildStoryPage(active);
+                    return _buildStoryPage(active, currentIdx);
                   },
                 ),
               ),
@@ -111,13 +111,29 @@ class _RankSlideBarState extends State<RankSlideBar> {
   //   });
   // }
 
-  _buildStoryPage(bool active) {
+  _buildStoryPage(bool active, int idx) {
     final double blur = active ? 10 : 0;
     final double offset = active ? 10 : 0;
     final double top = active ? 10 : 40;
     final double bottom = active ? 20 : 40;
     final bool visible = active ? true : false;
     final double sigmaVal = active ? 0.0 : 2.0;
+
+    List<String> mainTitle = [
+      "Silicone pet brush",
+      "Best Cat Trees",
+      "Agility Contest Final",
+      "Open New Hotel",
+      "Armored Skink"
+    ];
+
+    List<String> subTitle = [
+      "Soft without irritation",
+      "Safe and Stable",
+      "Exceeding expectations",
+      "SiSiPu's splendid",
+      "How To Train Your Dragon"
+    ];
 
     return AnimatedContainer(
       duration: Duration(milliseconds: 800),
@@ -127,7 +143,7 @@ class _RankSlideBarState extends State<RankSlideBar> {
         borderRadius: BorderRadius.circular(20),
         image: DecorationImage(
           fit: BoxFit.cover,
-          image: new AssetImage('assets/dogPicture2.jpg'),
+          image: new AssetImage('assets/image/mainBanner/weeklyFeatured' + idx.toString() + '.jpg'),
         ),
         boxShadow:  [BoxShadow(color: Colors.black54, blurRadius: blur, offset: Offset(offset, offset))],
 
@@ -139,11 +155,21 @@ class _RankSlideBarState extends State<RankSlideBar> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Visibility(
-              child: Text('X. Brand Name', style: TextStyle(fontSize: 20, color: Colors.black45)),
+              child: Container(
+                child: Text(subTitle[idx], style: TextStyle(fontSize: 20, color: Colors.white70, height: 1.4)),
+                decoration: BoxDecoration(
+                    boxShadow: [BoxShadow(color: Colors.black54, blurRadius: 20, offset: Offset(0, 0))]
+                ),
+              ),
               visible: visible,
             ),
             Visibility(
-              child: Text('Product Name', style: TextStyle(fontSize: 30, color: Colors.black)),
+              child: Container(
+                child: Text(mainTitle[idx], style: TextStyle(fontSize: 30, color: Colors.white, height: 1.4)),
+                decoration: BoxDecoration(
+                  boxShadow: [BoxShadow(color: Colors.black54, blurRadius: 20, offset: Offset(0, 0))]
+                ),
+              ),
               visible: visible,
             ),
           ]

@@ -66,7 +66,7 @@ class _RankListComponentState extends State<RankListComponent> {
         child: Row(
           children: [
             Text('${widget.index}', style: TextStyle(fontSize: 20),),
-            Image.asset('assets/product.png'),
+            Image.asset('assets/productImg/productFood0.jpg'),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(

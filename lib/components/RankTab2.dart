@@ -28,7 +28,7 @@ class _RankTab2State extends State<RankTab2> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Column(
       //mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
+      //crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Container(
           width: 330,padding:EdgeInsets.only(top: 6),
@@ -71,10 +71,10 @@ class _RankTab2State extends State<RankTab2> with TickerProviderStateMixin {
             child: TabBarView(
               controller: _tabController,
               children: [
-                RankTabList(),
-                RankTabList(),
-                RankTabList(),
-                RankTabList(),
+                RankTabList(tabName: "Food"),
+                RankTabList(tabName: "Traet"),
+                RankTabList(tabName: "Toy"),
+                RankTabList(tabName: "Stuff"),
               ],
             )),
         OutlinedButton.icon( onPressed: () { Navigator.push(
@@ -91,7 +91,8 @@ class _RankTab2State extends State<RankTab2> with TickerProviderStateMixin {
 }
 
 class RankTabList extends StatefulWidget {
-  const RankTabList({Key? key}) : super(key: key);
+  final String tabName;
+  const RankTabList({Key? key, required this.tabName}) : super(key: key);
 
   @override
   _RankTabListState createState() => _RankTabListState();
@@ -101,26 +102,13 @@ class _RankTabListState extends State<RankTabList> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: ListView(
+        child: ListView.builder(
           padding: EdgeInsets.fromLTRB(15.0, 5.0, 15.0, 5.0),
           scrollDirection: Axis.horizontal,
-          children: <Widget>[
-            Container(
-                child: RankBox()
-            ),
-            Container(
-                child: RankBox()
-            ),
-            Container(
-                child: RankBox()
-            ),
-            Container(
-                child: RankBox()
-            ),
-            Container(
-                child: RankBox()
-            )
-          ],
+          itemCount: 5,
+          itemBuilder: (BuildContext context, int index){
+            return RankBox(tabName: widget.tabName, idx: index);
+          },
         )
     );
   }

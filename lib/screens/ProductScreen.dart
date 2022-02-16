@@ -24,7 +24,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: new AssetImage('assets/dogPicture2.jpg'),
+                      image: new AssetImage('assets/image/mainBanner/weeklyFeatured.jpg'),
                     )
                   ),
               );

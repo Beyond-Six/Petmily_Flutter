@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:new_project/InitialPage.dart';
 import 'package:new_project/LandingPage.dart';
 // ignore_for_file: prefer_const_constructors
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
           secondaryHeaderColor: Color(0xffff5c5c),
           fontFamily: 'BalooBhaijaan',
           textTheme: const TextTheme()),
-      home: LandingPage(),
+      home: InitialPage(),
     );
   }
 }

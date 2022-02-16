@@ -14,7 +14,7 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   @override
   void initState() {
-    Timer(Duration(seconds: 3), (){
+    Timer(Duration(seconds: 2), (){
       Get.off(() => MainPage());
     });
     super.initState();
@@ -22,9 +22,18 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Image.asset('assets/landing.png', fit: BoxFit.cover),
+        padding: EdgeInsets.all(30),
+        alignment: Alignment.center,
+        color: Colors.white,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("PET", style: TextStyle(fontSize: 80, color: Colors.redAccent, fontWeight: FontWeight.w500, height: 1)),
+            Text("IS", style: TextStyle(fontSize: 80, color: Colors.redAccent, fontWeight: FontWeight.w500, height: 1)),
+            Text("FAMILY", style: TextStyle(fontSize: 80, color: Colors.redAccent, fontWeight: FontWeight.w500, height: 1))
+          ]
+      ),
       ),
     );
   }
