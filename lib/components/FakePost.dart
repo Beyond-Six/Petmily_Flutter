@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -51,21 +53,20 @@ class _FakePostState extends State<FakePost> {
       },
       child: Column(
         children: <Widget>[
-          //차라리 여기서 조건문이 들어가면?
           Padding(padding: EdgeInsets.only(top: 5)),
 
           for(j=0;j<widget.tag_clicked.length;j++)
             if(widget.selected_dropdown == widget.pet_dropdown[0] || widget.selected_dropdown == widget.pet_post_list.pet_name)
               if(widget.selected_location == widget.locate_dropdown[0] || widget.selected_location == widget.pet_post_list.post_location) // 이것떄문에 아무것도 안나온다
                 if(widget.tag_clicked[j]==true ||((widget.tag_clicked[0] == false) &&(widget.tag_clicked[1] == false)&&(widget.tag_clicked[2] == false)&&(widget.tag_clicked[3] == false)&&(widget.tag_clicked[4] == false)&&(widget.tag_clicked[5] == false))) //아니면 모든 태그선택된게 false이던가
-                  if(widget.pet_post_list.pet_tag_info[j] == true)//기본적으로 바로 밑줄밖에 영향을 안받는다. 그럼 2줄을 하고 싶을 땐 어떻게?
-                    MakeFakePost(widget.tag_clicked,widget.pet_post_list,widget.pet_dropdown), //그리는 함수
+                  if(widget.pet_post_list.pet_tag_info[j] == true)
+                    MakeFakePost(widget.tag_clicked,widget.pet_post_list,widget.pet_dropdown),
 
           for(j=0;j<widget.tag_clicked.length;j++)
             if(widget.selected_dropdown == widget.pet_dropdown[0] || widget.selected_dropdown == widget.pet_post_list.pet_name)
               if(widget.selected_location == widget.locate_dropdown[0] || widget.selected_location == widget.pet_post_list.post_location) // 이것떄문에 아무것도 안나온다
                 if(widget.tag_clicked[j]==true ||((widget.tag_clicked[0] == false) &&(widget.tag_clicked[1] == false)&&(widget.tag_clicked[2] == false)&&(widget.tag_clicked[3] == false)&&(widget.tag_clicked[4] == false)&&(widget.tag_clicked[5] == false))) //아니면 모든 태그선택된게 false이던가
-                  if(widget.pet_post_list.pet_tag_info[j] == true)//기본적으로 바로 밑줄밖에 영향을 안받는다. 그럼 2줄을 하고 싶을 땐 어떻게?
+                  if(widget.pet_post_list.pet_tag_info[j] == true)
                     Container(
                         width: 410,
                         child: Divider(color: Colors.grey, thickness: 0.8)),
@@ -94,9 +95,6 @@ class _FakePostState extends State<FakePost> {
                   style : TextStyle(fontSize: 20,color: Colors.black, height: 1.2),),
                 onPressed: () {
                   setState(() {
-                    //pet_post_fake_info.pet_tag_info_clicked[index_info]
-                    //  ? pet_post_fake_info.pet_tag_info_clicked[index_info] = false
-                    //: pet_post_fake_info.pet_tag_info_clicked[index_info] = true;
                   });
                 }
             ),
@@ -107,7 +105,7 @@ class _FakePostState extends State<FakePost> {
 
   MakeFakePost(List<bool> tag_clicked,Pet_Post_List pet_post_fake_info,List<String> dropdown) =>
       Container(
-        height: 430,
+        height: 440,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -157,7 +155,7 @@ class _FakePostState extends State<FakePost> {
                   ),
                   Container(
                     width: 350,
-                    height: (widget.pet_post_list.post_auther_classes == 'vet') ? 100 : 60,
+                    height: (widget.pet_post_list.post_auther_classes == 'vet') ? 100 : 70,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -167,18 +165,16 @@ class _FakePostState extends State<FakePost> {
                             style: TextStyle(fontSize: 20),
                             minFontSize: 12,
                             maxLines: 3,
-
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
-                        //Text(pet_post_fake_info.post_data_string,style: TextStyle(fontSize: 20),)
                       ],
                     ),
                   ),
-                  Padding(padding: EdgeInsets.only(top: 5)),
+                  Padding(padding: EdgeInsets.only(top: 10)),
                   Container(
                     width: 390,
-                    height: 30,
+                    height: 35,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.white30,
@@ -189,16 +185,14 @@ class _FakePostState extends State<FakePost> {
 
                         Row(
                           children: [
+                            Padding(padding: EdgeInsets.all(2)),
                             if(widget.pet_post_list.post_auther_classes == 'vet')
-                              CircleAvatar(
-                                backgroundColor: Colors.green,
-                                backgroundImage: AssetImage('assets/vet.png'),
-                                radius: 10,
-                                foregroundColor: Colors.green,
-                              ),
+                             Image.asset('assets/vet.png',fit: BoxFit.cover,),
                             //Icon(Icons.add,color: Colors.green),
                             if(widget.pet_post_list.post_auther_classes != 'vet')
-                              Icon(Icons.anchor,color: Colors.amberAccent),
+                              Icon(Icons.anchor,
+                                color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+                                size: 35,),
                             Padding(padding: EdgeInsets.all(5)),
                             Text(pet_post_fake_info.post_auther, style: TextStyle(fontSize: 20),),
                           ],
@@ -232,8 +226,6 @@ class _FakePostState extends State<FakePost> {
                             ),
                           ],
                         ),
-                        //IconButton(onPressed: (){}, icon: const Icon(Icons.add_comment) ),
-
                       ],
                     ),
                   ),
