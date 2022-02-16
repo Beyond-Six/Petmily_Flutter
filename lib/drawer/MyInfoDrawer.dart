@@ -209,5 +209,3 @@ class _PetCardState extends State<PetCard> {
     });
   }
 }
-
-
