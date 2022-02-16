@@ -143,8 +143,6 @@ class _CommunityPageState extends State<CommunityPage> {
 
                           FakePost(pet_post_list : Dog_Post_Fake_Info,tag_clicked : tagButtonSelected,pet_dropdown : _dropdown_items_pet,selected_dropdown : _selected_pet,locate_dropdown : _dropdown_items_locate,selected_location : _selected_locate),
                           if((tagButtonSelected[1] == true) || ((tagButtonSelected[0] == false)&&(tagButtonSelected[1] == false)&&(tagButtonSelected[2] == false)&&(tagButtonSelected[3] == false)&&(tagButtonSelected[4] == false)&&(tagButtonSelected[5] == false)))
-                            Text("Shorts", style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.w500)),
-                          if((tagButtonSelected[1] == true) || ((tagButtonSelected[0] == false)&&(tagButtonSelected[1] == false)&&(tagButtonSelected[2] == false)&&(tagButtonSelected[3] == false)&&(tagButtonSelected[4] == false)&&(tagButtonSelected[5] == false)))
                             ShortsBar(),
                           if((tagButtonSelected[1] == true) || ((tagButtonSelected[0] == false)&&(tagButtonSelected[1] == false)&&(tagButtonSelected[2] == false)&&(tagButtonSelected[3] == false)&&(tagButtonSelected[4] == false)&&(tagButtonSelected[5] == false)))
                             Container(
@@ -205,7 +203,7 @@ class _CommunityPageState extends State<CommunityPage> {
 
   void Set_Fake_Post_info(){
     Dog_Post_Fake_Info.pet_name="Dogs";
-    Dog_Post_Fake_Info.pet_file_name="assets/dogPicture2.jpg";
+    Dog_Post_Fake_Info.pet_file_name="assets/image/mainBanner/weeklyFeatured0.jpg";
     Dog_Post_Fake_Info.post_date="13 : 15";
     Dog_Post_Fake_Info.post_auther="dog4541";
     Dog_Post_Fake_Info.post_auther_classes="";
