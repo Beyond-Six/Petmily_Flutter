@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:new_project/components/BrandBar.dart';
 import 'package:new_project/components/CategoryBar.dart';
 import 'package:new_project/components/RankBox.dart';
 import 'package:new_project/components/RankSlideBar.dart';
@@ -80,9 +81,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
                 child: RankTab()
               ),
+              SizedBox(
+                height: 10,
+              ),
               Container(
                 padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
                 child: ShortsBar()
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                  padding: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
+                  child: BrandBar()
               ),
               SizedBox(
                 height: 20,

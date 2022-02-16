@@ -25,7 +25,7 @@ class _ShortsBarState extends State<ShortsBar> {
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
                 itemBuilder: (BuildContext context, int index){
-                  return ShortsBox(path: 'assets/video/test_video1.',);
+                  return ShortsBox(path: 'assets/video/test_video' + (index+1).toString());
                 }
             )
           )
@@ -59,7 +59,7 @@ class _ShortsBoxState extends State<ShortsBox> {
             borderRadius: BorderRadius.circular(10),
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: new AssetImage(widget.path + 'png')
+              image: new AssetImage(widget.path + '.jpg')
             )
           )
       )

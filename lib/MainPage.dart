@@ -103,7 +103,6 @@ class MainPageState extends State<MainPage>{
             ),
           ],
           backgroundColor: Colors.white,
-          automaticallyImplyLeading: false,
           elevation: 0.0,
         ),
       ),

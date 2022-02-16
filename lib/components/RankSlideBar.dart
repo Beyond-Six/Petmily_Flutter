@@ -59,14 +59,14 @@ class _RankSlideBarState extends State<RankSlideBar> {
   Widget build(BuildContext context) {
     MainPageState? parent = context.findAncestorStateOfType<MainPageState>();
     return InkWell(
-      onTap: () {
-        pushNewScreen(
-            context,
-            screen: ProductScreen(),
-          withNavBar: true,
-          pageTransitionAnimation: PageTransitionAnimation.fade
-        );
-      },
+      // onTap: () {
+      //   pushNewScreen(
+      //       context,
+      //       screen: ProductScreen(),
+      //     withNavBar: true,
+      //     pageTransitionAnimation: PageTransitionAnimation.fade
+      //   );
+      // },
       child: Scaffold(
           body: Column(
             children: <Widget>[
