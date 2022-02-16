@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
@@ -29,7 +30,7 @@ class _ProductScreenState extends State<ProductScreen> {
       color: Colors.white,
       padding: EdgeInsets.all(10),
       child: ListView.builder(
-          itemCount: 15,
+          itemCount: 7,
           itemBuilder: (BuildContext context, int index) {
             if (index == 0) {
               return Container(
@@ -141,63 +142,100 @@ class _ChartData {
   final double y;
 }
 
-class ReviewBox extends StatelessWidget {
+class ReviewBox extends StatefulWidget {
   const ReviewBox({Key? key, required this.index}) : super(key: key);
-
   final int index;
+
+  @override
+  _ReviewBoxState createState() => _ReviewBoxState();
+}
+
+class _ReviewBoxState extends State<ReviewBox> {
+  late List<_reviewData> data = [
+    _reviewData("Peri", "2022-02-17", "Very nice Product",
+        "We got this from a coupon expecting our dog wouldn’t care for "
+            "it because she’s never been one to like dry food. First day "
+            "we put it out she ate the whole thing and begged for more! We’ll be buying again", 4.8),
+    _reviewData("Tai", "2022-02-10", "I love olly's always dose a great one.",
+        "My rescue dogs have been eating this food for 5 years now and are supe"
+            "r healthy and fit. They both eat it happily at every meal and have "
+            "had no stomach issues ever. This is a quality food and fairly reasonably priced.", 4.2),
+    _reviewData("Gina", "2022-01-29", "I high  Recommend this one.",
+        "I love the food and will continue to buy it cause my Fur baby"
+            "'s love it but still really wished there was a 50lb bag for Small breeds", 4.6),
+    _reviewData("Henry", "2022-01-06", "My dog loves this food.",
+        "We have two dogs and we really had to search to find a food that worked"
+            " for both of them. So this was a win for us! They both like it and"
+            " digest it well, and both are very healthy.", 4.0),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            margin: EdgeInsets.all(5.0),
-            width: 80,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text('User $index', style: TextStyle(fontSize: 20, color: Colors.redAccent, height: 1.2),),
-                Text('P_Date', style: TextStyle(fontSize: 20, color: Colors.black),),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Container(
+        margin: EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 5.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
               margin: EdgeInsets.all(5.0),
+              width: 80,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      for( var i = 0 ; i < 5; i++ )
-                        new IconTheme(
-                          data: new IconThemeData(color: Colors.redAccent),
-                          child: new Icon(Icons.star_rounded, size: 25,), // I want to iterate this "star icon" for reviews.ratings.length times
-                        ),
-                    ],
-                  ),
-                  Text('Title area of comment', style: TextStyle(fontSize: 20),),
-                  Container(
-                    child: Row(
-                      children: [
-                        Flexible(
-                          child: Text('area of comment area of comment '
-                          'area of comment area of comment area of comment area '
-                          'of comment area of comment of comment area of comment', style: TextStyle(fontSize: 18, color: Colors.black54)),
-                        )
-
-                      ]
-                    )
-                  )
+                  Text(data[widget.index].name, style: TextStyle(fontSize: 24, color: Colors.redAccent, height: 1.2),),
+                  Text(data[widget.index].date, style: TextStyle(fontSize: 14, color: Colors.black),),
                 ],
               ),
             ),
-          )
-        ],
-      )
+            Expanded(
+              child: Container(
+                margin: EdgeInsets.all(5.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                        children: [
+                          RatingBarIndicator(
+                            rating: data[widget.index].rate,
+                            itemBuilder: (context, index) => Icon(
+                              Icons.star_rounded,
+                              color: Colors.redAccent,
+                            ),
+                            itemCount: 5,
+                            itemSize: 28.0,
+                            direction: Axis.horizontal,
+                          ),
+                          Text(data[widget.index].rate.toString(), style: TextStyle(fontSize: 15, color: Colors.black38))
+                        ]
+                    ),
+                    Text(data[widget.index].title, style: TextStyle(fontSize: 20),),
+                    Container(
+                        child: Row(
+                            children: [
+                              Flexible(
+                                child: Text(data[widget.index].content, style: TextStyle(fontSize: 18, color: Colors.black54)),
+                              )
+
+                            ]
+                        )
+                    )
+                  ],
+                ),
+              ),
+            )
+          ],
+        )
     );
   }
+}
+
+
+class _reviewData{
+  _reviewData(this.name, this.date, this.title, this.content, this.rate);
+
+  final String name;
+  final String date;
+  final String title;
+  final String content;
+  final double rate;
 }
