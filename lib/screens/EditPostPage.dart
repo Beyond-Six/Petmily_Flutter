@@ -44,7 +44,7 @@ class _EditPageState extends State<EditPage> {
               //obscureText: true,
               decoration: InputDecoration(
                 //border: OutlineInputBorder(),
-                labelText: '글 제목을 적으세요.',
+                labelText: 'Title',
               ),
             ),
             Padding(padding: EdgeInsets.all(20)),
@@ -62,7 +62,7 @@ class _EditPageState extends State<EditPage> {
               maxLines: null,
               decoration: InputDecoration(
                 //border: OutlineInputBorder(),
-                labelText: '글 내용을 적으세요.',
+                labelText: 'Contents',
               ),
             ),
         ]),
