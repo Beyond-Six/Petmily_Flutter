@@ -112,8 +112,8 @@ class _PetCardState extends State<PetCard> {
   late String imgPath = 'assets/image/profile_joe.png';
   late String petName = 'Joe';
   late String? type = 'Dog';
-  late String? age = '2 month';
-  late String? breed = 'Husky';
+  late String? age = '3 years';
+  late String? breed = 'Maltese';
 
   @override
   Widget build(BuildContext context) {
