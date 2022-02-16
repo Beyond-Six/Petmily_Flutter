@@ -114,7 +114,24 @@ class _PetCardState extends State<PetCard> {
   late String? type = 'Dog';
   late String? age = '3 years';
   late String? breed = 'Maltese';
+  final Map<String, String> typeMap = {'Joe':'Dog', 'Sunny':'Cat'};
+  final Map<String, String> ageMap = {'Joe':'3 years', 'Sunny':'1 month'};
+  final Map<String, String> breedMap = {'Joe':'Maltese', 'Sunny':'Turkish Angora'};
 
+  late String imgPath = 'assets/image/profile_' + petName.toLowerCase() + '.png';
+  late String petName = homeScreenKey.currentState!.selectedPet;
+  late String? type;
+  late String? age;
+  late String? breed;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    type = typeMap[petName];
+    age = ageMap[petName];
+    breed = breedMap[petName];
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -141,7 +158,7 @@ class _PetCardState extends State<PetCard> {
                 )
               ),
             ),
-            Text("${petName}", style: TextStyle(fontSize: 30, color: Color(0xff2c3440), fontWeight: FontWeight.w600, height: 1.2), ),
+            Text(homeScreenKey.currentState!.selectedPet, style: TextStyle(fontSize: 30, color: Color(0xff2c3440), fontWeight: FontWeight.w600, height: 1.2), ),
             Text("Type : ${type}", style: TextStyle(fontSize: 20, color: Color(0xff2c3440)),),
             Text("Age : ${age}", style: TextStyle(fontSize: 20, color: Color(0xff2c3440)),),
             Text("Breed : ${breed}", style: TextStyle(fontSize: 20, color: Color(0xff2c3440)),),
@@ -184,9 +201,9 @@ class _PetCardState extends State<PetCard> {
     );
   }
 
-  final Map<String, String> typeMap = {'Joe':'Dog', 'Sunny':'Cat'};
-  final Map<String, String> ageMap = {'Joe':'2 month', 'Sunny':'1 month'};
-  final Map<String, String> breedMap = {'Joe':'Husky', 'Sunny':'Turkish Angora'};
+
+
+
   void SetPetProfile(String setName){
     setState(() {
       petName = setName;
