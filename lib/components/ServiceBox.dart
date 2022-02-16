@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_project/screens/RankListScreen.dart';
 import 'package:new_project/screens/recommend/RecommendHome.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
@@ -17,7 +18,7 @@ class _ServiceBoxState extends State<ServiceBox> {
     return InkWell(
       onTap:(){Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => RecommendHome()));
+          MaterialPageRoute(builder: (context) => RankListScreen()));
       },
       child: Container(
         padding: const EdgeInsets.all(6.0),
