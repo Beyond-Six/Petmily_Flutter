@@ -45,7 +45,7 @@ class MainPageState extends State<MainPage>{
 
   List<Widget> _buildScreens() {
     return [
-      HomeScreen(),
+      HomeScreen(key: homeScreenKey),
       RankTab2(),
       CommunityPage()
 

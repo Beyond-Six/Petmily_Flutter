@@ -53,7 +53,7 @@ class _ShortsBoxState extends State<ShortsBox> {
         Get.to(() => ShortsScreen(path: widget.path));
       },
       child: Container(
-          width: 100,
+          width: 110,
           margin: EdgeInsets.all(5),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
