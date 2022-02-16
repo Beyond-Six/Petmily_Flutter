@@ -21,14 +21,11 @@ class _RankListScreenState extends State<RankListScreen> {
         itemBuilder: (BuildContext context, int index) {
           if (index == 0) {
             return Container(
-                height: 50,
+                width: 120,height: 50,
                 margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                 padding: EdgeInsets.fromLTRB(10, 4, 10, 4),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black38, width: 2),
-                  borderRadius: BorderRadius.circular(10),
-
-                ),
+                    border: Border(bottom:BorderSide(width: 2,color: Color(0xffFF5C5C)))),
                 child: Text('Grooming', style: TextStyle(fontSize: 28, color: Theme.of(context).primaryColor, fontWeight: FontWeight.w500),)
             );
           }
