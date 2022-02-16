@@ -203,7 +203,7 @@ class _CommunityPageState extends State<CommunityPage> {
 
   void Set_Fake_Post_info(){
     Dog_Post_Fake_Info.pet_name="Dogs";
-    Dog_Post_Fake_Info.pet_file_name="assets/image/mainBanner/weeklyFeatured0.jpg";
+    Dog_Post_Fake_Info.pet_file_name="assets/dog_food.png";
     Dog_Post_Fake_Info.post_date="13 : 15";
     Dog_Post_Fake_Info.post_auther="dog4541";
     Dog_Post_Fake_Info.post_auther_classes="";
