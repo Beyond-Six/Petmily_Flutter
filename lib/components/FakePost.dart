@@ -31,7 +31,7 @@ class FakePost extends StatefulWidget {
 class _FakePostState extends State<FakePost> {
 
   bool favButtonSelected = false;
-  var tags = ["Vets","Shorts","Train","Walk","Food","Help"]; //Community Page에 있는것과 동일해야 함
+  var tags = ["Vets","Lost/found","Shorts","Train","Walk","Food"]; //Community Page에 있는것과 동일해야 함
   int j=0;
   var flag = "0";
   List<bool> tag_all_false_selcected_list = [false,false,false,false,false,false] ;
