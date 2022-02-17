@@ -52,6 +52,8 @@ class _Post_PageState extends State<Post_Page> {
 
             if(widget.pet_post_list.post_auther_classes == 'vet') //쓴 사람이 vet면
               Image.asset('assets/vet_explanation.png'),
+            if(widget.pet_post_list.pet_tag_info[1] == true) //tag가 Lost/Found면
+              Image.asset('assets/lost_dog_banner.png'),
 
             Padding(padding: EdgeInsets.all(5)),
             Container(
@@ -70,6 +72,9 @@ class _Post_PageState extends State<Post_Page> {
                       random_text_chat_author(),
                     ],
                   ),
+                  if(widget.pet_post_list.pet_tag_info[1] == true)
+                    Text("I wish you Godspeed! ",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
+                  if(widget.pet_post_list.pet_tag_info[1] != true)
                   random_text_chat_content()
                 ],
               ),
@@ -89,6 +94,9 @@ class _Post_PageState extends State<Post_Page> {
                       random_text_chat_author()
                     ],
                   ),
+                  if(widget.pet_post_list.pet_tag_info[1] == true)
+                    Text("OMG!! I saw him on the market!",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
+                  if(widget.pet_post_list.pet_tag_info[1] != true)
                   random_text_chat_content()
                 ],
               ),

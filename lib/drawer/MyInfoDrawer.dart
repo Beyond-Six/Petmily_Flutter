@@ -195,6 +195,10 @@ class _PetCardState extends State<PetCard> {
       ),
     );
   }
+
+
+
+
   void SetPetProfile(String setName){
     setState(() {
       petName = setName;
@@ -205,3 +209,4 @@ class _PetCardState extends State<PetCard> {
     });
   }
 }
+
