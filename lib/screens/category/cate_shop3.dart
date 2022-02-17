@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:new_project/components/RankBox.dart';
 import 'package:new_project/components/ServiceBox.dart';
+import 'package:new_project/screens/RankListScreen.dart';
+import 'package:new_project/screens/category/adopt.dart';
 import 'package:new_project/screens/recommend/RecommendHome.dart';
 class cate_shop3 extends StatefulWidget{
   @override
@@ -37,9 +39,15 @@ class _cate_shop3State extends State<cate_shop3>{
 
                   Row(
                     children: [
-                      Container(
-                          child: ServiceBox(tabName: "GROOMING", idx: 0)
-                      ),
+                      InkWell(
+                        onTap:(){Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => RankListScreen()));
+                        },
+                        child: Container(
+                          child: ServiceBox(tabName: "GROOMING", idx: 0),
+
+                        ),),
                       Container(
                           child: ServiceBox(tabName: "PETS HOTEL", idx: 1)
                       ),
@@ -47,9 +55,15 @@ class _cate_shop3State extends State<cate_shop3>{
                   ),
                   Row(
                     children: [
-                      Container(
-                          child: ServiceBox(tabName: "ADOPTION", idx: 5)
-                      ),
+                      InkWell(
+                        onTap:(){Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => adopt()));
+                        },
+                      child: Container(
+                          child: ServiceBox(tabName: "ADOPTION", idx: 5),
+
+                      ),),
                       Container(
                           child: ServiceBox(tabName: "VETERINARY CARE", idx: 4)
                       ),
@@ -58,7 +72,8 @@ class _cate_shop3State extends State<cate_shop3>{
                   Row(
                     children: [
                       Container(
-                          child: ServiceBox(tabName: "DOGGIE DAY CAMP", idx: 2)
+                          child: ServiceBox(tabName: "DOGGIE DAY CAMP", idx: 2),
+
                       ),
                       Container(
                           child: ServiceBox(tabName: "DOG TRAINING", idx: 3)

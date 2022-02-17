@@ -16,10 +16,7 @@ class _ServiceBoxState extends State<ServiceBox> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap:(){Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => RankListScreen()));
-      },
+
       child: Container(
         padding: const EdgeInsets.all(6.0),
         margin: EdgeInsets.fromLTRB(10.0, 35.0, 5.0, 3.0),
