@@ -20,13 +20,23 @@ class _RankListScreenState extends State<RankListScreen> {
         itemCount: 6,
         itemBuilder: (BuildContext context, int index) {
           if (index == 0) {
-            return Container(
-                width: 120,height: 50,
-                margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                padding: EdgeInsets.fromLTRB(10, 4, 10, 4),
-                decoration: BoxDecoration(
-                    border: Border(bottom:BorderSide(width: 2,color: Color(0xffFF5C5C)))),
-                child: Text('Grooming', style: TextStyle(fontSize: 28, color: Theme.of(context).primaryColor, fontWeight: FontWeight.w500),)
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                    margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    // decoration: BoxDecoration(
+                    //     border: Border(bottom:BorderSide(width: 2,color: Color(0xffFF5C5C)))),
+                    child: Text('Grooming', style: TextStyle(fontSize: 28, color: Theme.of(context).primaryColor, fontWeight: FontWeight.w500, height: 1.6),)
+                ),
+                Container(
+                  margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  color: Color(0xffFF5C5C),
+                  width: 145,
+                  height: 2,
+                )
+              ],
             );
           }
 

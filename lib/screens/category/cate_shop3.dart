@@ -14,14 +14,27 @@ class _cate_shop3State extends State<cate_shop3>{
     const fortext = TextStyle(fontSize: 20,color: Color(0xff2C3440));
     return ListView(
         children: <Widget>[
-          Container( width: 700,height:1200,
+          Container( width: 700,height:1100,
               child: ListView(
                 padding: EdgeInsets.fromLTRB(20.0, 5.0, 15.0, 5.0),
                 scrollDirection: Axis.vertical,
                 children: <Widget>[
                   Container(
-                    child: Text("Service",style:TextStyle(fontSize: 24),)
+                    margin: EdgeInsets.only(top: 10),
+                    alignment: Alignment.center,
+                    child: Column(
+                        children: [
+                          Text("Service",style:TextStyle(fontSize: 28, fontWeight: FontWeight.w500, height: 1.2),),
+                          Container(
+                            margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                            color: Color(0xffFF5C5C),
+                            width: 120,
+                            height: 2,
+                          ),
+                        ]
+                    )
                   ),
+
                   Row(
                     children: [
                       Container(

@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:new_project/components/RankTab.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class RecommendHome4 extends StatefulWidget{
   @override
   _RecommendHome4State createState() => _RecommendHome4State();
 }
 class _RecommendHome4State extends State<RecommendHome4>{
+  late List<_ChartData> data = [
+    _ChartData('Quality', 4.3),
+    _ChartData('Value', 4.2),
+    _ChartData('Pet Satisfaction', 4.1)
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -144,8 +151,37 @@ class _RecommendHome4State extends State<RecommendHome4>{
                         child: Column(
                           children: <Widget>[
                             Text("REAL USER\'s REVIEW",
-                                style: TextStyle(decoration:TextDecoration.underline,fontSize:17,color:Colors.black54,))
-                            ,Image.asset('assets/stuff3.png')
+                                style: TextStyle(decoration:TextDecoration.underline,fontSize:17,color:Colors.black54,)),
+                            // Image.asset('assets/stuff3.png'),
+                            Container(
+                                padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                height: 98,
+                                child: SfCartesianChart(
+                                    plotAreaBorderWidth: 0,
+                                    primaryXAxis: CategoryAxis(
+                                        majorGridLines: MajorGridLines(width: 0)
+                                    ),
+                                    primaryYAxis: NumericAxis(
+                                        isVisible: false,
+                                        minimum: 0,
+                                        maximum: 5,
+                                        interval: 1,
+                                        majorGridLines: MajorGridLines(width: 0)
+                                    ),
+                                    series: <ChartSeries<_ChartData, String>>[
+                                      BarSeries<_ChartData, String>(
+                                        dataSource: data,
+                                        xValueMapper: (_ChartData data, _) => data.x,
+                                        yValueMapper: (_ChartData data, _) => data.y,
+                                        color: Color(0xffFF5C5C),
+                                        borderRadius: BorderRadius.only(topRight: Radius.circular(6), bottomRight: Radius.circular(6)),
+                                        isTrackVisible: true,
+                                        trackColor: Colors.black12,
+                                        dataLabelSettings: DataLabelSettings(isVisible: true, ),
+
+                                      )
+                                    ])
+                            )
                           ],
                         )),
 
@@ -178,4 +214,9 @@ var stars = Row(
   ],
 );
 
+class _ChartData {
+  _ChartData(this.x, this.y);
 
+  final String x;
+  final double y;
+}
