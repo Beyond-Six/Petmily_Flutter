@@ -16,10 +16,12 @@ class _cate_shop3State extends State<cate_shop3>{
         children: <Widget>[
           Container( width: 700,height:1200,
               child: ListView(
-                padding: EdgeInsets.fromLTRB(15.0, 5.0, 15.0, 5.0),
+                padding: EdgeInsets.fromLTRB(20.0, 5.0, 15.0, 5.0),
                 scrollDirection: Axis.vertical,
                 children: <Widget>[
-
+                  Container(
+                    child: Text("Service",style:TextStyle(fontSize: 24),)
+                  ),
                   Row(
                     children: [
                       Container(
@@ -33,20 +35,20 @@ class _cate_shop3State extends State<cate_shop3>{
                   Row(
                     children: [
                       Container(
-                          child: ServiceBox(tabName: "DOGGIE DAY CAMP", idx: 2)
+                          child: ServiceBox(tabName: "ADOPTION", idx: 5)
                       ),
                       Container(
-                          child: ServiceBox(tabName: "DOG TRAINING", idx: 3)
+                          child: ServiceBox(tabName: "VETERINARY CARE", idx: 4)
                       ),
                     ],
                   ),
                   Row(
                     children: [
                       Container(
-                          child: ServiceBox(tabName: "VETERINARY CARE", idx: 4)
+                          child: ServiceBox(tabName: "DOGGIE DAY CAMP", idx: 2)
                       ),
                       Container(
-                          child: ServiceBox(tabName: "ADOPTION", idx: 5)
+                          child: ServiceBox(tabName: "DOG TRAINING", idx: 3)
                       ),
                     ],
                   ),
