@@ -244,7 +244,7 @@ class _CommunityPageState extends State<CommunityPage> {
     Rept_Post_Fake_Info.pet_tag_info = [false, false, false, true, false, false];
 
     Lost_Post_Fake_Info.pet_name="Dogs";
-    Lost_Post_Fake_Info.pet_file_name="assets/dog_food.png";
+    Lost_Post_Fake_Info.pet_file_name="assets/lost_dog.png";
     Lost_Post_Fake_Info.post_date="12 : 21";
     Lost_Post_Fake_Info.post_auther="mydoggy~~";
     Lost_Post_Fake_Info.post_auther_classes="";
