@@ -95,7 +95,7 @@ class _Post_PageState extends State<Post_Page> {
                     ],
                   ),
                   if(widget.pet_post_list.pet_tag_info[1] == true)
-                    Text("OMG!! I saw him on the market!",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
+                    Text("OMG!! I saw him at the market!",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
                   if(widget.pet_post_list.pet_tag_info[1] != true)
                   random_text_chat_content()
                 ],
