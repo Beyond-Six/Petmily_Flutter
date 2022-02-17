@@ -19,7 +19,7 @@ class _CategoryState extends State<Category> with TickerProviderStateMixin{
   @override
   void initState() {
     // TODO: implement initState
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 2, vsync: this);
     super.initState();
   }
   @override
@@ -39,9 +39,7 @@ class _CategoryState extends State<Category> with TickerProviderStateMixin{
             Container(
                 child: Text("Shop", style: TextStyle(fontSize: 20.0))
             ),
-            Container(
-                child: Text("Service", style: TextStyle(fontSize: 20.0))
-            ),
+
             Container(
                 child: Text("Brand", style: TextStyle(fontSize: 20.0))
             ),
@@ -60,7 +58,6 @@ class _CategoryState extends State<Category> with TickerProviderStateMixin{
                     controller: _tabController,
                     children: [
                       cate_shop2(),
-                      cate_shop3(),
                       cate_shop4(),
                     ],
                   )

@@ -8,6 +8,7 @@ import 'package:new_project/screens/CommunityPage.dart';
 
 import 'package:new_project/screens/HomeScreen.dart';
 import 'package:new_project/screens/RankListScreen.dart';
+import 'package:new_project/screens/category/cate_shop3.dart';
 import 'package:new_project/screens/recommend/RecommendHome.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
@@ -38,6 +39,10 @@ class MainPageState extends State<MainPage>{
         icon: Icon(Icons.pets)
     ),
     BottomNavigationBarItem(
+        label: 'service',
+        icon: Image.asset('assets/cate/service5')
+    ),
+    BottomNavigationBarItem(
         label: 'community',
         icon: Icon(Icons.article)
     ),
@@ -47,7 +52,7 @@ class MainPageState extends State<MainPage>{
     return [
       HomeScreen(key: homeScreenKey),
        RankTab2(),
-      //RankListScreen(),
+      cate_shop3(),
       CommunityPage()
 
     ];
@@ -64,6 +69,12 @@ class MainPageState extends State<MainPage>{
       PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.paw),
         title: ("Recommend"),
+        activeColorPrimary: CupertinoColors.destructiveRed,
+        inactiveColorPrimary: CupertinoColors.systemGrey,
+      ),
+      PersistentBottomNavBarItem(
+        icon: Icon(CupertinoIcons.suit_heart),
+        title: ("Service"),
         activeColorPrimary: CupertinoColors.destructiveRed,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
